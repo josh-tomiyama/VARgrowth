@@ -97,8 +97,8 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 264, column 2 to column 19)",
                                                       " (in 'string', line 266, column 8 to column 9)",
                                                       " (in 'string', line 266, column 2 to column 11)",
-                                                      " (in 'string', line 267, column 10 to column 11)",
-                                                      " (in 'string', line 267, column 2 to column 13)",
+                                                      " (in 'string', line 267, column 11 to column 12)",
+                                                      " (in 'string', line 267, column 2 to column 14)",
                                                       " (in 'string', line 268, column 2 to column 8)",
                                                       " (in 'string', line 269, column 2 to column 13)",
                                                       " (in 'string', line 270, column 2 to column 17)",
@@ -140,7 +140,7 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 9, column 22 to line 14, column 3)",
                                                       " (in 'string', line 9, column 2 to line 14, column 3)",
                                                       " (in 'string', line 15, column 2 to column 14)",
-                                                      " (in 'string', line 6, column 77 to line 16, column 1)",
+                                                      " (in 'string', line 6, column 78 to line 16, column 1)",
                                                       " (in 'string', line 21, column 9 to column 20)",
                                                       " (in 'string', line 21, column 22 to column 33)",
                                                       " (in 'string', line 21, column 2 to column 39)",
@@ -234,9 +234,6 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 111, column 94 to line 135, column 1)",
                                                       " (in 'string', line 143, column 4 to column 42)",
                                                       " (in 'string', line 142, column 66 to line 144, column 2)",
-                                                      " (in 'string', line 148, column 3 to column 34)",
-                                                      " (in 'string', line 149, column 4 to line 153, column 6)",
-                                                      " (in 'string', line 147, column 73 to line 154, column 2)",
                                                       " (in 'string', line 157, column 4 to column 72)",
                                                       " (in 'string', line 156, column 86 to line 158, column 2)",
                                                       " (in 'string', line 161, column 9 to column 15)",
@@ -262,7 +259,7 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 168, column 22 to line 189, column 3)",
                                                       " (in 'string', line 168, column 2 to line 189, column 3)",
                                                       " (in 'string', line 191, column 2 to column 14)",
-                                                      " (in 'string', line 160, column 98 to line 192, column 2)",
+                                                      " (in 'string', line 160, column 99 to line 192, column 2)",
                                                       " (in 'string', line 197, column 2 to column 30)",
                                                       " (in 'string', line 196, column 25 to line 198, column 1)",
                                                       " (in 'string', line 201, column 2 to column 63)",
@@ -320,12 +317,14 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 258, column 2 to column 91)",
                                                       " (in 'string', line 259, column 2 to column 26)",
                                                       " (in 'string', line 254, column 39 to line 260, column 1)"};
-template <typename T3__>
-Eigen::Matrix<stan::promote_args_t<stan::value_type_t<T3__>>, -1, 1>
+template <typename T2__, typename T3__>
+Eigen::Matrix<stan::promote_args_t<T2__,
+stan::value_type_t<T3__>>, -1, 1>
 UserDefinedGrowth(const int& n_data, const std::vector<int>& groups,
-                  const std::vector<int>& times, const T3__& theta_arg__,
+                  const std::vector<T2__>& times, const T3__& theta_arg__,
                   std::ostream* pstream__) {
-  using local_scalar_t__ = stan::promote_args_t<stan::value_type_t<T3__>>;
+  using local_scalar_t__ = stan::promote_args_t<T2__,
+          stan::value_type_t<T3__>>;
   const auto& theta = to_ref(theta_arg__);
   const static bool propto__ = true;
   (void) propto__;
@@ -365,10 +364,11 @@ UserDefinedGrowth(const int& n_data, const std::vector<int>& groups,
   
 }
 struct UserDefinedGrowth_functor__ {
-template <typename T3__>
-Eigen::Matrix<stan::promote_args_t<stan::value_type_t<T3__>>, -1, 1>
+template <typename T2__, typename T3__>
+Eigen::Matrix<stan::promote_args_t<T2__,
+stan::value_type_t<T3__>>, -1, 1>
 operator()(const int& n_data, const std::vector<int>& groups,
-           const std::vector<int>& times, const T3__& theta,
+           const std::vector<T2__>& times, const T3__& theta,
            std::ostream* pstream__)  const 
 {
 return UserDefinedGrowth(n_data, groups, times, theta, pstream__);
@@ -840,51 +840,6 @@ operator()(const T0__& time, const T1__& Asym, const T2__& offset,
 return gompertzMean(time, Asym, offset, growth, pstream__);
 }
 };
-template <typename T0__, typename T1__, typename T2__, typename T3__>
-Eigen::Matrix<stan::promote_args_t<stan::value_type_t<T0__>, T1__, T2__,
-T3__>, -1, 1>
-gompertzMeanVec(const T0__& time_arg__, const T1__& Asym, const T2__& offset,
-                const T3__& growth, std::ostream* pstream__) {
-  using local_scalar_t__ = stan::promote_args_t<stan::value_type_t<T0__>,
-          T1__,
-          T2__,
-          T3__>;
-  const auto& time = to_ref(time_arg__);
-  const static bool propto__ = true;
-  (void) propto__;
-  local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
-  (void) DUMMY_VAR__;  // suppress unused var warning
-  
-  try {
-    int ntime;
-    ntime = std::numeric_limits<int>::min();
-    
-    current_statement__ = 160;
-    ntime = num_elements(time);
-    current_statement__ = 161;
-    return elt_multiply(rep_vector(Asym, ntime),
-             stan::math::exp(
-               elt_multiply(minus(rep_vector(offset, ntime)),
-                 stan::math::exp(
-                   elt_multiply(time,
-                     stan::math::log(rep_vector(growth, ntime)))))));
-  } catch (const std::exception& e) {
-    stan::lang::rethrow_located(e, locations_array__[current_statement__]);
-      // Next line prevents compiler griping about no return
-      throw std::runtime_error("*** IF YOU SEE THIS, PLEASE REPORT A BUG ***"); 
-  }
-  
-}
-struct gompertzMeanVec_functor__ {
-template <typename T0__, typename T1__, typename T2__, typename T3__>
-Eigen::Matrix<stan::promote_args_t<stan::value_type_t<T0__>, T1__, T2__,
-T3__>, -1, 1>
-operator()(const T0__& time, const T1__& Asym, const T2__& offset,
-           const T3__& growth, std::ostream* pstream__)  const 
-{
-return gompertzMeanVec(time, Asym, offset, growth, pstream__);
-}
-};
 template <typename T0__, typename T1__, typename T2__, typename T3__,
 typename T4__>
 stan::promote_args_t<T0__, T1__, T2__, T3__,
@@ -903,7 +858,7 @@ fourParamLogistic(const T0__& time, const T1__& min, const T2__& max,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 163;
+    current_statement__ = 160;
     return (max + (min - (max / (1 + pow((time / inflect_point), slope)))));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -924,12 +879,14 @@ operator()(const T0__& time, const T1__& min, const T2__& max,
 return fourParamLogistic(time, min, max, inflect_point, slope, pstream__);
 }
 };
-template <typename T3__>
-Eigen::Matrix<stan::promote_args_t<stan::value_type_t<T3__>>, -1, 1>
+template <typename T2__, typename T3__>
+Eigen::Matrix<stan::promote_args_t<T2__,
+stan::value_type_t<T3__>>, -1, 1>
 growthMean(const int& n_data, const std::vector<int>& groups,
-           const std::vector<int>& times, const T3__& theta_arg__,
+           const std::vector<T2__>& times, const T3__& theta_arg__,
            const int& parameterization_type, std::ostream* pstream__) {
-  using local_scalar_t__ = stan::promote_args_t<stan::value_type_t<T3__>>;
+  using local_scalar_t__ = stan::promote_args_t<T2__,
+          stan::value_type_t<T3__>>;
   const auto& theta = to_ref(theta_arg__);
   const static bool propto__ = true;
   (void) propto__;
@@ -937,33 +894,33 @@ growthMean(const int& n_data, const std::vector<int>& groups,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 165;
+    current_statement__ = 162;
     validate_non_negative_index("out", "n_data", n_data);
     Eigen::Matrix<local_scalar_t__, -1, 1> out;
     out = Eigen::Matrix<local_scalar_t__, -1, 1>(n_data);
     stan::math::fill(out, DUMMY_VAR__);
     
-    current_statement__ = 170;
+    current_statement__ = 167;
     if (logical_eq(parameterization_type, 0)) {
-      current_statement__ = 167;
+      current_statement__ = 164;
       assign(out, nil_index_list(),
-        UserDefinedGrowth(n_data, times, groups, theta, pstream__),
+        UserDefinedGrowth(n_data, groups, times, theta, pstream__),
         "assigning variable out");
-      current_statement__ = 168;
+      current_statement__ = 165;
       return out;
     } 
-    current_statement__ = 186;
+    current_statement__ = 183;
     for (int idx = 1; idx <= n_data; ++idx) {
-      current_statement__ = 184;
+      current_statement__ = 181;
       if (logical_eq(parameterization_type, 1)) {
-        current_statement__ = 181;
+        current_statement__ = 178;
         if (logical_neq(cols(theta), 3)) {
-          current_statement__ = 179;
+          current_statement__ = 176;
           std::stringstream errmsg_stream__;
           errmsg_stream__ << "This growth parameterization requires 3 params";
           throw std::domain_error(errmsg_stream__.str());
         } 
-        current_statement__ = 182;
+        current_statement__ = 179;
         assign(out, cons_list(index_uni(idx), nil_index_list()),
           gompertzMean(times[(idx - 1)],
             rvalue(theta,
@@ -977,16 +934,16 @@ growthMean(const int& n_data, const std::vector<int>& groups,
                 cons_list(index_uni(3), nil_index_list())), "theta"), pstream__),
           "assigning variable out");
       } else {
-        current_statement__ = 178;
+        current_statement__ = 175;
         if (logical_eq(parameterization_type, 2)) {
-          current_statement__ = 175;
+          current_statement__ = 172;
           if (logical_neq(cols(theta), 4)) {
-            current_statement__ = 173;
+            current_statement__ = 170;
             std::stringstream errmsg_stream__;
             errmsg_stream__ << "The growth parameterization requires 4 params";
             throw std::domain_error(errmsg_stream__.str());
           } 
-          current_statement__ = 176;
+          current_statement__ = 173;
           assign(out, cons_list(index_uni(idx), nil_index_list()),
             fourParamLogistic(times[(idx - 1)],
               rvalue(theta,
@@ -1003,14 +960,14 @@ growthMean(const int& n_data, const std::vector<int>& groups,
                   cons_list(index_uni(4), nil_index_list())), "theta"), pstream__),
             "assigning variable out");
         } else {
-          current_statement__ = 171;
+          current_statement__ = 168;
           std::stringstream errmsg_stream__;
           errmsg_stream__ << "Parameterization type is not valid";
           errmsg_stream__ << parameterization_type;
           throw std::domain_error(errmsg_stream__.str());
         }
       }}
-    current_statement__ = 187;
+    current_statement__ = 184;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1020,10 +977,11 @@ growthMean(const int& n_data, const std::vector<int>& groups,
   
 }
 struct growthMean_functor__ {
-template <typename T3__>
-Eigen::Matrix<stan::promote_args_t<stan::value_type_t<T3__>>, -1, 1>
+template <typename T2__, typename T3__>
+Eigen::Matrix<stan::promote_args_t<T2__,
+stan::value_type_t<T3__>>, -1, 1>
 operator()(const int& n_data, const std::vector<int>& groups,
-           const std::vector<int>& times, const T3__& theta,
+           const std::vector<T2__>& times, const T3__& theta,
            const int& parameterization_type, std::ostream* pstream__)  const 
 {
 return growthMean(n_data, groups, times, theta, parameterization_type,
@@ -1040,7 +998,7 @@ inverseLogit(const T0__& x, std::ostream* pstream__) {
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 189;
+    current_statement__ = 186;
     return (stan::math::exp(x) / (1 + stan::math::exp(x)));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1068,7 +1026,7 @@ inverseLogitVec(const T0__& x_arg__, std::ostream* pstream__) {
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 191;
+    current_statement__ = 188;
     return elt_divide(stan::math::exp(x),
              add(rep_vector(1, num_elements(x)), stan::math::exp(x)));
   } catch (const std::exception& e) {
@@ -1101,7 +1059,7 @@ transformThetaVec(const T0__& transformType_arg__, const T1__& theta_arg__,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 193;
+    current_statement__ = 190;
     validate_non_negative_index("transform_theta", "num_elements(theta)",
                                 num_elements(theta));
     Eigen::Matrix<local_scalar_t__, -1, 1> transform_theta;
@@ -1109,44 +1067,44 @@ transformThetaVec(const T0__& transformType_arg__, const T1__& theta_arg__,
                                                                theta));
     stan::math::fill(transform_theta, DUMMY_VAR__);
     
-    current_statement__ = 197;
+    current_statement__ = 194;
     if (logical_neq(num_elements(transformType), num_elements(theta))) {
-      current_statement__ = 195;
+      current_statement__ = 192;
       std::stringstream errmsg_stream__;
       errmsg_stream__ << "Number of transformations not equal to number of theta parameters";
       throw std::domain_error(errmsg_stream__.str());
     } 
-    current_statement__ = 210;
+    current_statement__ = 207;
     for (int i = 1; i <= num_elements(theta); ++i) {
-      current_statement__ = 208;
+      current_statement__ = 205;
       if (logical_eq(transformType[(i - 1)], 1)) {
-        current_statement__ = 206;
+        current_statement__ = 203;
         assign(transform_theta, cons_list(index_uni(i), nil_index_list()),
           theta[(i - 1)], "assigning variable transform_theta");
       } else {
-        current_statement__ = 205;
+        current_statement__ = 202;
         if (logical_eq(transformType[(i - 1)], 2)) {
-          current_statement__ = 203;
+          current_statement__ = 200;
           assign(transform_theta, cons_list(index_uni(i), nil_index_list()),
             stan::math::exp(theta[(i - 1)]),
             "assigning variable transform_theta");
         } else {
-          current_statement__ = 202;
+          current_statement__ = 199;
           if (logical_eq(transformType[(i - 1)], 3)) {
-            current_statement__ = 200;
+            current_statement__ = 197;
             assign(transform_theta,
               cons_list(index_uni(i), nil_index_list()),
               inverseLogit(theta[(i - 1)], pstream__),
               "assigning variable transform_theta");
           } else {
-            current_statement__ = 198;
+            current_statement__ = 195;
             std::stringstream errmsg_stream__;
             errmsg_stream__ << "transform type is not valid";
             throw std::domain_error(errmsg_stream__.str());
           }
         }
       }}
-    current_statement__ = 211;
+    current_statement__ = 208;
     return transform_theta;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1180,36 +1138,36 @@ transformThetaMat(const T0__& transformType_arg__, const T1__& theta_arg__,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 213;
+    current_statement__ = 210;
     validate_non_negative_index("transform_theta", "rows(theta)", rows(theta));
-    current_statement__ = 214;
+    current_statement__ = 211;
     validate_non_negative_index("transform_theta", "cols(theta)", cols(theta));
     Eigen::Matrix<local_scalar_t__, -1, -1> transform_theta;
     transform_theta = Eigen::Matrix<local_scalar_t__, -1, -1>(rows(theta), 
       cols(theta));
     stan::math::fill(transform_theta, DUMMY_VAR__);
     
-    current_statement__ = 219;
+    current_statement__ = 216;
     if (logical_eq(transformType[(1 - 1)], 0)) {
-      current_statement__ = 216;
+      current_statement__ = 213;
       assign(transform_theta, nil_index_list(),
         UserDefinedThetaTransformation(theta, pstream__),
         "assigning variable transform_theta");
-      current_statement__ = 217;
+      current_statement__ = 214;
       return transform_theta;
     } 
-    current_statement__ = 222;
+    current_statement__ = 219;
     if (logical_neq(num_elements(transformType), cols(theta))) {
-      current_statement__ = 220;
+      current_statement__ = 217;
       std::stringstream errmsg_stream__;
       errmsg_stream__ << "Number of transformations not equal to number of theta parameters";
       throw std::domain_error(errmsg_stream__.str());
     } 
-    current_statement__ = 235;
+    current_statement__ = 232;
     for (int i = 1; i <= cols(theta); ++i) {
-      current_statement__ = 233;
+      current_statement__ = 230;
       if (logical_eq(transformType[(i - 1)], 1)) {
-        current_statement__ = 231;
+        current_statement__ = 228;
         assign(transform_theta,
           cons_list(index_omni(), cons_list(index_uni(i), nil_index_list())),
           rvalue(theta,
@@ -1217,9 +1175,9 @@ transformThetaMat(const T0__& transformType_arg__, const T1__& theta_arg__,
               cons_list(index_uni(i), nil_index_list())), "theta"),
           "assigning variable transform_theta");
       } else {
-        current_statement__ = 230;
+        current_statement__ = 227;
         if (logical_eq(transformType[(i - 1)], 2)) {
-          current_statement__ = 228;
+          current_statement__ = 225;
           assign(transform_theta,
             cons_list(index_omni(),
               cons_list(index_uni(i), nil_index_list())),
@@ -1229,9 +1187,9 @@ transformThetaMat(const T0__& transformType_arg__, const T1__& theta_arg__,
                   cons_list(index_uni(i), nil_index_list())), "theta")),
             "assigning variable transform_theta");
         } else {
-          current_statement__ = 227;
+          current_statement__ = 224;
           if (logical_eq(transformType[(i - 1)], 3)) {
-            current_statement__ = 225;
+            current_statement__ = 222;
             assign(transform_theta,
               cons_list(index_omni(),
                 cons_list(index_uni(i), nil_index_list())),
@@ -1241,14 +1199,14 @@ transformThetaMat(const T0__& transformType_arg__, const T1__& theta_arg__,
                     cons_list(index_uni(i), nil_index_list())), "theta"), pstream__),
               "assigning variable transform_theta");
           } else {
-            current_statement__ = 223;
+            current_statement__ = 220;
             std::stringstream errmsg_stream__;
             errmsg_stream__ << "transform type is not valid";
             throw std::domain_error(errmsg_stream__.str());
           }
         }
       }}
-    current_statement__ = 236;
+    current_statement__ = 233;
     return transform_theta;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1278,30 +1236,30 @@ expLogitLinkTheta(const T0__& theta_arg__, std::ostream* pstream__) {
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 238;
+    current_statement__ = 235;
     validate_non_negative_index("transform_theta", "rows(theta)", rows(theta));
-    current_statement__ = 239;
+    current_statement__ = 236;
     validate_non_negative_index("transform_theta", "cols(theta)", cols(theta));
     Eigen::Matrix<local_scalar_t__, -1, -1> transform_theta;
     transform_theta = Eigen::Matrix<local_scalar_t__, -1, -1>(rows(theta), 
       cols(theta));
     stan::math::fill(transform_theta, DUMMY_VAR__);
     
-    current_statement__ = 241;
+    current_statement__ = 238;
     assign(transform_theta,
       cons_list(index_omni(), cons_list(index_uni(1), nil_index_list())),
       stan::math::exp(
         rvalue(theta,
           cons_list(index_omni(), cons_list(index_uni(1), nil_index_list())),
           "theta")), "assigning variable transform_theta");
-    current_statement__ = 242;
+    current_statement__ = 239;
     assign(transform_theta,
       cons_list(index_omni(), cons_list(index_uni(2), nil_index_list())),
       stan::math::exp(
         rvalue(theta,
           cons_list(index_omni(), cons_list(index_uni(2), nil_index_list())),
           "theta")), "assigning variable transform_theta");
-    current_statement__ = 243;
+    current_statement__ = 240;
     assign(transform_theta,
       cons_list(index_omni(), cons_list(index_uni(3), nil_index_list())),
       elt_divide(
@@ -1315,7 +1273,7 @@ expLogitLinkTheta(const T0__& theta_arg__, std::ostream* pstream__) {
               cons_list(index_omni(),
                 cons_list(index_uni(3), nil_index_list())), "theta")))),
       "assigning variable transform_theta");
-    current_statement__ = 244;
+    current_statement__ = 241;
     return transform_theta;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1338,7 +1296,7 @@ private:
   int N;
   int d;
   std::vector<int> u;
-  std::vector<int> tpt;
+  std::vector<double> tpt;
   int U;
   int pTheta;
   int nrowXTheta;
@@ -1415,12 +1373,12 @@ public:
       current_statement__ = 23;
       validate_non_negative_index("tpt", "N", N);
       current_statement__ = 24;
-      context__.validate_dims("data initialization","tpt","int",
+      context__.validate_dims("data initialization","tpt","double",
           context__.to_vec(N));
-      tpt = std::vector<int>(N, std::numeric_limits<int>::min());
+      tpt = std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
       
       current_statement__ = 24;
-      assign(tpt, nil_index_list(), context__.vals_i("tpt"),
+      assign(tpt, nil_index_list(), context__.vals_r("tpt"),
         "assigning variable tpt");
       current_statement__ = 25;
       context__.validate_dims("data initialization","U","int",
