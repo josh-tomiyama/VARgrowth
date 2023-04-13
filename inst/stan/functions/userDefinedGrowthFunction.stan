@@ -1,6 +1,6 @@
 // User defined functions for growth mean/parameter transformations
 
-vector UserDefinedGrowth(int n_data, int[] groups, int[] times, matrix theta){
+vector UserDefinedGrowth(int n_data, int[] groups, real[] times, matrix theta){
   vector[n_data] out;
 
   for(idx in 1:n_data){

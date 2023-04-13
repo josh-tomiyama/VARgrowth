@@ -14,7 +14,7 @@ data{
   int<lower = 1> d; // Num parameters
   // order by year/group then week of the year
   int u[N]; // Index of what year/group observation is from.  presumably ordered.
-  int tpt[N]; // tpt for each week presumably ordered.
+  real tpt[N]; // tpt for each week presumably ordered.
   int U; //Number of groups/years
   int pTheta1; // number of columns in XTheta
   int pTheta2; // number of columns in XTheta
@@ -56,7 +56,7 @@ data{
   // vector for var of  betaTheta params
   vector[pTheta2] pBetaTheta2Param2;
   //vector for means of betaTheta2
-  vector[pTheta3l] pBetaTheta3Param1;
+  vector[pTheta3] pBetaTheta3Param1;
   // vector for var of  betaTheta params
   vector[pTheta3] pBetaTheta3Param2;
   // prior on iid variance Z

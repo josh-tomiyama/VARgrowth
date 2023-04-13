@@ -14,7 +14,7 @@ data{
   int<lower = 1> d; // Num parameters
   // order by year/group then week of the year
   int u[N]; // Index of what year/group observation is from.  presumably ordered.
-  int tpt[N]; // tpt for each week presumably ordered.
+  real tpt[N]; // tpt for each week presumably ordered.
   int U; //Number of groups/years
   int pTheta; // number of columns in XTheta
   int nrowXTheta; // number of rows in design matrix. Should be = U

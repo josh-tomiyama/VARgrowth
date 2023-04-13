@@ -4,7 +4,7 @@
 \alias{mdic}
 \title{Marginal Deviance Information Criterion calculation for VARGrowthFit Posterior}
 \usage{
-mdic(object, nsamp = 1e+05)
+mdic(object, nsamp = 1000)
 }
 \arguments{
 \item{object}{A VARGrowthFit Object}

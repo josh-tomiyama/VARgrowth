@@ -7,24 +7,24 @@
  }
 // will need to wait until stan rolls out vectorized support
 // not sure if this really helps indexing the input vector for groups/time
- vector gompertzMeanVec(vector time, real Asym, real offset, real growth){
-   int ntime = num_elements(time);
-    return(rep_vector(Asym, ntime) .*
-      exp(-rep_vector(offset, ntime) .*
-          exp(time .* log(rep_vector(growth, ntime)))
-      )
-    );
- }
+ // vector gompertzMeanVec(real time, real Asym, real offset, real growth){
+ //   int ntime = num_elements(time);
+ //    return(rep_vector(Asym, ntime) .*
+ //      exp(-rep_vector(offset, ntime) .*
+ //          exp(time .* log(rep_vector(growth, ntime)))
+ //      )
+ //    );
+ // }
 
  real fourParamLogistic(real time, real min, real max, real inflect_point, real slope){
     return(max + (min - max / (1 + (time / inflect_point ) ^ slope) ) );
  }
 
- vector growthMean(int n_data, int[] groups, int[] times, matrix theta, int parameterization_type){
+ vector growthMean(int n_data, int[] groups, real[] times, matrix theta, int parameterization_type){
   vector[n_data] out;
 
   if(parameterization_type == 0){
-     out = UserDefinedGrowth(n_data, times, groups, theta);
+     out = UserDefinedGrowth(n_data, groups, times, theta);
      return(out);
    }
 

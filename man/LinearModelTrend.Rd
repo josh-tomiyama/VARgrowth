@@ -5,19 +5,27 @@
 \title{Specify a Linear model for group trends}
 \usage{
 LinearModelTrend(data, formula = ~1, XTheta = NULL)
+
+LinearModelTrend(data, formula = ~1, XTheta = NULL)
 }
 \arguments{
 \item{data}{A VARGrowth data object}
 
-\item{formula}{a formula specifying how to construct the linear model matrix}
+\item{formula}{a list of formulas specifying how to construct the linear model matrix for each parameter}
 
-\item{XTheta}{An optional design matrix with number of rows = number of groups in data}
+\item{XTheta}{An optional list of design matrix with number of rows = number of groups in data}
 }
 \value{
+
+
 
 }
 \description{
 Use this function to define a linear model mean for the group trends of the form \eqn{g(\theta_d) \sim N(X_\theta \beta_d, \sigma_d)}.
 \eqn{X_\theta} should be a U x p matrix where U is the number of groups and p is the number of linear predictor parameters.
+Note that as of now every mean parameter \eqn{\theta} is assumed to have the same design matrix.
+
+Use this function to define a linear model mean for the group trends of the form \eqn{g(\theta_d) \sim N(X_\theta_d \beta_d, \sigma_d)}.
+\eqn{X_\theta} should be a U x p_d matrix where U is the number of groups and p_d is the number of linear predictor parameters for the d-th parameter.
 Note that as of now every mean parameter \eqn{\theta} is assumed to have the same design matrix.
 }
