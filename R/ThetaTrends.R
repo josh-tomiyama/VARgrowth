@@ -106,10 +106,11 @@ VARTrend <- function(theta,  p = 1, var_model_control = list()){
 #'
 #' @return
 #' @export
+#' @importFrom stats model.matrix
 #'
 #' @examples
 LinearModelTrend <- function(data, formula = ~ 1, XTheta = NULL){
-
+  browser()
   if(is.null(XTheta)){
     XTheta <- model.matrix(formula, data)
     XTheta <- XTheta[!duplicated(XTheta),]
@@ -155,7 +156,7 @@ LinearModelTrend <- function(data, formula = ~ 1, XTheta = NULL){
 #' @export
 #'
 #' @examples
-LinearModelTrend <- function(data, formula = ~ 1, XTheta = NULL){
+LinearModelTrend2 <- function(data, formula = ~ 1, XTheta = NULL){
 
   if(is.null(XTheta)){
     XTheta <- lapply(formula, function(formula, data){
