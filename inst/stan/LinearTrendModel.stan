@@ -102,35 +102,35 @@ model{
 generated quantities{
   // These are pointwise log likelihoods
   vector[N] log_lik;
-  real theta_samp[U, d, 10000];
-  matrix[N, 10000] marg_log_lik_samp;
-  vector[N] mu_temp;
-  vector[N] marg_log_lik;
+  // real theta_samp[U, d, 10000];
+  // matrix[N, 10000] marg_log_lik_samp;
+  // vector[N] mu_temp;
+  // vector[N] marg_log_lik;
 
   for(i in 1:N){
     log_lik[i] = normal_lpdf(Z[i] | mu[i], sqrt(ObsVar));
 //    normal_lpdf(Theta[u[i]] | linear_pred_theta[u[i]], sqrt(SigmaTheta));
   }
 
-  for(i in 1:U){
-    for(j in 1:(10000)){
-      theta_samp[i, 1:d, j] = normal_rng(to_vector(linear_pred_theta[i]),
-                              sqrt(SigmaTheta));
-    }
-  }
-
-  for(j in 1:(10000)){
-    mu_temp =
-    growthMean(N, u, tpt,
-    transformThetaMat(transformSpecification, to_matrix(theta_samp[,,j])),
-    meanParameterization);
-
-    for(i in 1:N){
-      marg_log_lik_samp[i, j] = exp(normal_lpdf(Z[i] | mu_temp[i] ,sqrt(ObsVar)));
-    }
-  }
-
-  for(i in 1:N){
-    marg_log_lik[i] = log(mean(marg_log_lik_samp[i, 1:(10000)]));
-  }
+  // for(i in 1:U){
+  //   for(j in 1:(10000)){
+  //     theta_samp[i, 1:d, j] = normal_rng(to_vector(linear_pred_theta[i]),
+  //                             sqrt(SigmaTheta));
+  //   }
+  // }
+  //
+  // for(j in 1:(10000)){
+  //   mu_temp =
+  //   growthMean(N, u, tpt,
+  //   transformThetaMat(transformSpecification, to_matrix(theta_samp[,,j])),
+  //   meanParameterization);
+  //
+  //   for(i in 1:N){
+  //     marg_log_lik_samp[i, j] = exp(normal_lpdf(Z[i] | mu_temp[i] ,sqrt(ObsVar)));
+  //   }
+  // }
+  //
+  // for(i in 1:N){
+  //   marg_log_lik[i] = log(mean(marg_log_lik_samp[i, 1:(10000)]));
+  // }
 }

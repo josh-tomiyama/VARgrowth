@@ -91,27 +91,9 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 317, column 2 to column 63)",
                                                       " (in 'string', line 319, column 2 to column 41)",
                                                       " (in 'string', line 341, column 2 to column 20)",
-                                                      " (in 'string', line 342, column 2 to column 31)",
-                                                      " (in 'string', line 343, column 2 to column 37)",
-                                                      " (in 'string', line 344, column 2 to column 20)",
-                                                      " (in 'string', line 345, column 2 to column 25)",
                                                       " (in 'string', line 347, column 4 to column 57)",
                                                       " (in 'string', line 346, column 15 to line 349, column 3)",
                                                       " (in 'string', line 346, column 2 to line 349, column 3)",
-                                                      " (in 'string', line 352, column 6 to line 353, column 48)",
-                                                      " (in 'string', line 351, column 23 to line 354, column 5)",
-                                                      " (in 'string', line 351, column 4 to line 354, column 5)",
-                                                      " (in 'string', line 350, column 15 to line 355, column 3)",
-                                                      " (in 'string', line 350, column 2 to line 355, column 3)",
-                                                      " (in 'string', line 357, column 4 to line 360, column 26)",
-                                                      " (in 'string', line 362, column 6 to column 82)",
-                                                      " (in 'string', line 361, column 17 to line 363, column 5)",
-                                                      " (in 'string', line 361, column 4 to line 363, column 5)",
-                                                      " (in 'string', line 356, column 21 to line 364, column 3)",
-                                                      " (in 'string', line 356, column 2 to line 364, column 3)",
-                                                      " (in 'string', line 366, column 4 to column 65)",
-                                                      " (in 'string', line 365, column 15 to line 367, column 3)",
-                                                      " (in 'string', line 365, column 2 to line 367, column 3)",
                                                       " (in 'string', line 323, column 2 to column 69)",
                                                       " (in 'string', line 324, column 2 to column 109)",
                                                       " (in 'string', line 325, column 2 to line 328, column 49)",
@@ -173,11 +155,6 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 311, column 9 to column 10)",
                                                       " (in 'string', line 311, column 12 to column 13)",
                                                       " (in 'string', line 341, column 9 to column 10)",
-                                                      " (in 'string', line 342, column 18 to column 19)",
-                                                      " (in 'string', line 342, column 21 to column 22)",
-                                                      " (in 'string', line 343, column 9 to column 10)",
-                                                      " (in 'string', line 344, column 9 to column 10)",
-                                                      " (in 'string', line 345, column 9 to column 10)",
                                                       " (in 'string', line 7, column 9 to column 15)",
                                                       " (in 'string', line 7, column 2 to column 21)",
                                                       " (in 'string', line 10, column 4 to line 13, column 6)",
@@ -376,15 +353,15 @@ UserDefinedGrowth(const int& n_data, const std::vector<int>& groups,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 104;
+    current_statement__ = 81;
     validate_non_negative_index("out", "n_data", n_data);
     Eigen::Matrix<local_scalar_t__, -1, 1> out;
     out = Eigen::Matrix<local_scalar_t__, -1, 1>(n_data);
     stan::math::fill(out, DUMMY_VAR__);
     
-    current_statement__ = 108;
+    current_statement__ = 85;
     for (int idx = 1; idx <= n_data; ++idx) {
-      current_statement__ = 106;
+      current_statement__ = 83;
       assign(out, cons_list(index_uni(idx), nil_index_list()),
         (rvalue(theta,
            cons_list(index_uni(groups[(idx - 1)]),
@@ -398,7 +375,7 @@ UserDefinedGrowth(const int& n_data, const std::vector<int>& groups,
                   cons_list(index_uni(groups[(idx - 1)]),
                     cons_list(index_uni(3), nil_index_list())), "theta"),
                 times[(idx - 1)])))), "assigning variable out");}
-    current_statement__ = 109;
+    current_statement__ = 86;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -430,17 +407,17 @@ UserDefinedThetaTransformation(const T0__& theta_arg__,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 111;
+    current_statement__ = 88;
     validate_non_negative_index("out", "rows(theta)", rows(theta));
-    current_statement__ = 112;
+    current_statement__ = 89;
     validate_non_negative_index("out", "cols(theta)", cols(theta));
     Eigen::Matrix<local_scalar_t__, -1, -1> out;
     out = Eigen::Matrix<local_scalar_t__, -1, -1>(rows(theta), cols(theta));
     stan::math::fill(out, DUMMY_VAR__);
     
-    current_statement__ = 114;
+    current_statement__ = 91;
     assign(out, nil_index_list(), theta, "assigning variable out");
-    current_statement__ = 115;
+    current_statement__ = 92;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -481,25 +458,25 @@ ThetaPriors(const T0__& theta_arg__, const T1__& priorParam1_arg__,
     local_scalar_t__ out;
     out = DUMMY_VAR__;
     
-    current_statement__ = 118;
+    current_statement__ = 95;
     out = 0;
-    current_statement__ = 121;
+    current_statement__ = 98;
     if (logical_neq(num_elements(priorType), cols(theta))) {
-      current_statement__ = 119;
+      current_statement__ = 96;
       std::stringstream errmsg_stream__;
       errmsg_stream__ << "Number of transformations not equal to number of theta parameters";
       throw std::domain_error(errmsg_stream__.str());
     } 
-    current_statement__ = 134;
+    current_statement__ = 111;
     for (int i = 1; i <= cols(theta); ++i) {
-      current_statement__ = 132;
+      current_statement__ = 109;
       if (logical_eq(priorType[(i - 1)], 0)) {
-        current_statement__ = 130;
+        current_statement__ = 107;
         out = (out + 0);
       } else {
-        current_statement__ = 129;
+        current_statement__ = 106;
         if (logical_eq(priorType[(i - 1)], 1)) {
-          current_statement__ = 127;
+          current_statement__ = 104;
           out = (out +
                   uniform_lpdf<false>(
                     rvalue(theta,
@@ -514,9 +491,9 @@ ThetaPriors(const T0__& theta_arg__, const T1__& priorParam1_arg__,
                         cons_list(index_uni(i), nil_index_list())),
                       "priorParam2")));
         } else {
-          current_statement__ = 126;
+          current_statement__ = 103;
           if (logical_eq(priorType[(i - 1)], 2)) {
-            current_statement__ = 124;
+            current_statement__ = 101;
             out = (out +
                     normal_lpdf<false>(
                       rvalue(theta,
@@ -532,14 +509,14 @@ ThetaPriors(const T0__& theta_arg__, const T1__& priorParam1_arg__,
                           cons_list(index_uni(i), nil_index_list())),
                         "priorParam2")));
           } else {
-            current_statement__ = 122;
+            current_statement__ = 99;
             std::stringstream errmsg_stream__;
             errmsg_stream__ << "prior type is not valid";
             throw std::domain_error(errmsg_stream__.str());
           }
         }
       }}
-    current_statement__ = 135;
+    current_statement__ = 112;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -576,38 +553,38 @@ ObsVarPriors(const T0__& ObsVar, const T1__& priorParam1,
     local_scalar_t__ out;
     out = DUMMY_VAR__;
     
-    current_statement__ = 138;
+    current_statement__ = 115;
     out = 0;
-    current_statement__ = 154;
+    current_statement__ = 131;
     if (logical_eq(priorType, 0)) {
-      current_statement__ = 151;
+      current_statement__ = 128;
       std::stringstream errmsg_stream__;
       errmsg_stream__ << "Prior not allowed";
       throw std::domain_error(errmsg_stream__.str());
-      current_statement__ = 152;
+      current_statement__ = 129;
       out = (out + 0);
     } else {
-      current_statement__ = 150;
+      current_statement__ = 127;
       if (logical_eq(priorType, 1)) {
-        current_statement__ = 147;
+        current_statement__ = 124;
         std::stringstream errmsg_stream__;
         errmsg_stream__ << "Prior not allowed";
         throw std::domain_error(errmsg_stream__.str());
-        current_statement__ = 148;
+        current_statement__ = 125;
         out = (out + uniform_lpdf<false>(ObsVar, priorParam1, priorParam2));
       } else {
-        current_statement__ = 146;
+        current_statement__ = 123;
         if (logical_eq(priorType, 2)) {
-          current_statement__ = 144;
+          current_statement__ = 121;
           out = (out + normal_lpdf<false>(ObsVar, priorParam1, priorParam2));
         } else {
-          current_statement__ = 143;
+          current_statement__ = 120;
           if (logical_eq(priorType, 3)) {
-            current_statement__ = 141;
+            current_statement__ = 118;
             out = (out +
                     inv_gamma_lpdf<false>(ObsVar, priorParam1, priorParam2));
           } else {
-            current_statement__ = 139;
+            current_statement__ = 116;
             std::stringstream errmsg_stream__;
             errmsg_stream__ << "prior type is not valid";
             throw std::domain_error(errmsg_stream__.str());
@@ -615,7 +592,7 @@ ObsVarPriors(const T0__& ObsVar, const T1__& priorParam1,
         }
       }
     }
-    current_statement__ = 155;
+    current_statement__ = 132;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -659,46 +636,46 @@ SigmaThetaPriors(const T0__& SigmaTheta_arg__, const T1__& priorParam1_arg__,
     local_scalar_t__ out;
     out = DUMMY_VAR__;
     
-    current_statement__ = 158;
+    current_statement__ = 135;
     out = 0;
-    current_statement__ = 161;
+    current_statement__ = 138;
     if (logical_neq(num_elements(SigmaTheta), num_elements(priorType))) {
-      current_statement__ = 159;
+      current_statement__ = 136;
       std::stringstream errmsg_stream__;
       errmsg_stream__ << "Number of prior types not equal number of Sigma Theta parameters";
       throw std::domain_error(errmsg_stream__.str());
     } 
-    current_statement__ = 177;
+    current_statement__ = 154;
     for (int i = 1; i <= num_elements(SigmaTheta); ++i) {
-      current_statement__ = 175;
+      current_statement__ = 152;
       if (logical_eq(priorType[(i - 1)], 0)) {
-        current_statement__ = 173;
+        current_statement__ = 150;
         out = (out + 0);
       } else {
-        current_statement__ = 172;
+        current_statement__ = 149;
         if (logical_eq(priorType[(i - 1)], 1)) {
-          current_statement__ = 170;
+          current_statement__ = 147;
           out = (out +
                   uniform_lpdf<false>(SigmaTheta[(i - 1)],
                     priorParam1[(i - 1)], priorParam2[(i - 1)]));
         } else {
-          current_statement__ = 169;
+          current_statement__ = 146;
           if (logical_eq(priorType[(i - 1)], 2)) {
-            current_statement__ = 167;
+            current_statement__ = 144;
             out = (out +
                     (normal_lpdf<false>(SigmaTheta[(i - 1)],
                        priorParam1[(i - 1)], priorParam2[(i - 1)]) -
                       normal_lccdf(0, priorParam1[(i - 1)],
                         priorParam2[(i - 1)])));
           } else {
-            current_statement__ = 166;
+            current_statement__ = 143;
             if (logical_eq(priorType[(i - 1)], 3)) {
-              current_statement__ = 164;
+              current_statement__ = 141;
               out = (out +
                       inv_gamma_lpdf<false>(SigmaTheta[(i - 1)],
                         priorParam1[(i - 1)], priorParam2[(i - 1)]));
             } else {
-              current_statement__ = 162;
+              current_statement__ = 139;
               std::stringstream errmsg_stream__;
               errmsg_stream__ << "prior type is not valid";
               throw std::domain_error(errmsg_stream__.str());
@@ -706,7 +683,7 @@ SigmaThetaPriors(const T0__& SigmaTheta_arg__, const T1__& priorParam1_arg__,
           }
         }
       }}
-    current_statement__ = 178;
+    current_statement__ = 155;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -752,26 +729,26 @@ BetaPriorCols(const T0__& betaTheta_arg__, const T1__& priorParam1_arg__,
     local_scalar_t__ out;
     out = DUMMY_VAR__;
     
-    current_statement__ = 181;
+    current_statement__ = 158;
     out = 0;
-    current_statement__ = 199;
+    current_statement__ = 176;
     for (int i = 1; i <= rows(betaTheta); ++i) {
-      current_statement__ = 197;
+      current_statement__ = 174;
       if (logical_eq(priorType[(i - 1)], 0)) {
-        current_statement__ = 194;
+        current_statement__ = 171;
         std::stringstream errmsg_stream__;
         errmsg_stream__ << "Prior not allowed";
         throw std::domain_error(errmsg_stream__.str());
-        current_statement__ = 195;
+        current_statement__ = 172;
         out = (out + 0);
       } else {
-        current_statement__ = 193;
+        current_statement__ = 170;
         if (logical_eq(priorType[(i - 1)], 1)) {
-          current_statement__ = 190;
+          current_statement__ = 167;
           std::stringstream errmsg_stream__;
           errmsg_stream__ << "Prior not allowed";
           throw std::domain_error(errmsg_stream__.str());
-          current_statement__ = 191;
+          current_statement__ = 168;
           out = (out +
                   uniform_lpdf<false>(
                     rvalue(betaTheta,
@@ -787,9 +764,9 @@ BetaPriorCols(const T0__& betaTheta_arg__, const T1__& priorParam1_arg__,
                         cons_list(index_uni(i), nil_index_list())),
                       "priorParam2")));
         } else {
-          current_statement__ = 189;
+          current_statement__ = 166;
           if (logical_eq(priorType[(i - 1)], 2)) {
-            current_statement__ = 187;
+            current_statement__ = 164;
             out = (out +
                     normal_lpdf<false>(
                       rvalue(betaTheta,
@@ -805,9 +782,9 @@ BetaPriorCols(const T0__& betaTheta_arg__, const T1__& priorParam1_arg__,
                           cons_list(index_uni(i), nil_index_list())),
                         "priorParam2")));
           } else {
-            current_statement__ = 186;
+            current_statement__ = 163;
             if (logical_eq(priorType[(i - 1)], 3)) {
-              current_statement__ = 184;
+              current_statement__ = 161;
               out = (out +
                       inv_gamma_lpdf<false>(
                         rvalue(betaTheta,
@@ -823,7 +800,7 @@ BetaPriorCols(const T0__& betaTheta_arg__, const T1__& priorParam1_arg__,
                             cons_list(index_uni(i), nil_index_list())),
                           "priorParam2")));
             } else {
-              current_statement__ = 182;
+              current_statement__ = 159;
               std::stringstream errmsg_stream__;
               errmsg_stream__ << "prior type is not valid";
               throw std::domain_error(errmsg_stream__.str());
@@ -831,7 +808,7 @@ BetaPriorCols(const T0__& betaTheta_arg__, const T1__& priorParam1_arg__,
           }
         }
       }}
-    current_statement__ = 200;
+    current_statement__ = 177;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -865,7 +842,7 @@ gompertzMean(const T0__& time, const T1__& Asym, const T2__& offset,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 202;
+    current_statement__ = 179;
     return (Asym * stan::math::exp((-offset * pow(growth, time))));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -902,7 +879,7 @@ fourParamLogistic(const T0__& time, const T1__& min, const T2__& max,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 204;
+    current_statement__ = 181;
     return (max + (min - (max / (1 + pow((time / inflect_point), slope)))));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -938,33 +915,33 @@ growthMean(const int& n_data, const std::vector<int>& groups,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 206;
+    current_statement__ = 183;
     validate_non_negative_index("out", "n_data", n_data);
     Eigen::Matrix<local_scalar_t__, -1, 1> out;
     out = Eigen::Matrix<local_scalar_t__, -1, 1>(n_data);
     stan::math::fill(out, DUMMY_VAR__);
     
-    current_statement__ = 211;
+    current_statement__ = 188;
     if (logical_eq(parameterization_type, 0)) {
-      current_statement__ = 208;
+      current_statement__ = 185;
       assign(out, nil_index_list(),
         UserDefinedGrowth(n_data, groups, times, theta, pstream__),
         "assigning variable out");
-      current_statement__ = 209;
+      current_statement__ = 186;
       return out;
     } 
-    current_statement__ = 227;
+    current_statement__ = 204;
     for (int idx = 1; idx <= n_data; ++idx) {
-      current_statement__ = 225;
+      current_statement__ = 202;
       if (logical_eq(parameterization_type, 1)) {
-        current_statement__ = 222;
+        current_statement__ = 199;
         if (logical_neq(cols(theta), 3)) {
-          current_statement__ = 220;
+          current_statement__ = 197;
           std::stringstream errmsg_stream__;
           errmsg_stream__ << "This growth parameterization requires 3 params";
           throw std::domain_error(errmsg_stream__.str());
         } 
-        current_statement__ = 223;
+        current_statement__ = 200;
         assign(out, cons_list(index_uni(idx), nil_index_list()),
           gompertzMean(times[(idx - 1)],
             rvalue(theta,
@@ -978,16 +955,16 @@ growthMean(const int& n_data, const std::vector<int>& groups,
                 cons_list(index_uni(3), nil_index_list())), "theta"), pstream__),
           "assigning variable out");
       } else {
-        current_statement__ = 219;
+        current_statement__ = 196;
         if (logical_eq(parameterization_type, 2)) {
-          current_statement__ = 216;
+          current_statement__ = 193;
           if (logical_neq(cols(theta), 4)) {
-            current_statement__ = 214;
+            current_statement__ = 191;
             std::stringstream errmsg_stream__;
             errmsg_stream__ << "The growth parameterization requires 4 params";
             throw std::domain_error(errmsg_stream__.str());
           } 
-          current_statement__ = 217;
+          current_statement__ = 194;
           assign(out, cons_list(index_uni(idx), nil_index_list()),
             fourParamLogistic(times[(idx - 1)],
               rvalue(theta,
@@ -1004,14 +981,14 @@ growthMean(const int& n_data, const std::vector<int>& groups,
                   cons_list(index_uni(4), nil_index_list())), "theta"), pstream__),
             "assigning variable out");
         } else {
-          current_statement__ = 212;
+          current_statement__ = 189;
           std::stringstream errmsg_stream__;
           errmsg_stream__ << "Parameterization type is not valid";
           errmsg_stream__ << parameterization_type;
           throw std::domain_error(errmsg_stream__.str());
         }
       }}
-    current_statement__ = 228;
+    current_statement__ = 205;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1042,7 +1019,7 @@ inverseLogit(const T0__& x, std::ostream* pstream__) {
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 230;
+    current_statement__ = 207;
     return (stan::math::exp(x) / (1 + stan::math::exp(x)));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1070,7 +1047,7 @@ inverseLogitVec(const T0__& x_arg__, std::ostream* pstream__) {
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 232;
+    current_statement__ = 209;
     return elt_divide(stan::math::exp(x),
              add(rep_vector(1, num_elements(x)), stan::math::exp(x)));
   } catch (const std::exception& e) {
@@ -1103,7 +1080,7 @@ transformThetaVec(const T0__& transformType_arg__, const T1__& theta_arg__,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 234;
+    current_statement__ = 211;
     validate_non_negative_index("transform_theta", "num_elements(theta)",
                                 num_elements(theta));
     Eigen::Matrix<local_scalar_t__, -1, 1> transform_theta;
@@ -1111,44 +1088,44 @@ transformThetaVec(const T0__& transformType_arg__, const T1__& theta_arg__,
                                                                theta));
     stan::math::fill(transform_theta, DUMMY_VAR__);
     
-    current_statement__ = 238;
+    current_statement__ = 215;
     if (logical_neq(num_elements(transformType), num_elements(theta))) {
-      current_statement__ = 236;
+      current_statement__ = 213;
       std::stringstream errmsg_stream__;
       errmsg_stream__ << "Number of transformations not equal to number of theta parameters";
       throw std::domain_error(errmsg_stream__.str());
     } 
-    current_statement__ = 251;
+    current_statement__ = 228;
     for (int i = 1; i <= num_elements(theta); ++i) {
-      current_statement__ = 249;
+      current_statement__ = 226;
       if (logical_eq(transformType[(i - 1)], 1)) {
-        current_statement__ = 247;
+        current_statement__ = 224;
         assign(transform_theta, cons_list(index_uni(i), nil_index_list()),
           theta[(i - 1)], "assigning variable transform_theta");
       } else {
-        current_statement__ = 246;
+        current_statement__ = 223;
         if (logical_eq(transformType[(i - 1)], 2)) {
-          current_statement__ = 244;
+          current_statement__ = 221;
           assign(transform_theta, cons_list(index_uni(i), nil_index_list()),
             stan::math::exp(theta[(i - 1)]),
             "assigning variable transform_theta");
         } else {
-          current_statement__ = 243;
+          current_statement__ = 220;
           if (logical_eq(transformType[(i - 1)], 3)) {
-            current_statement__ = 241;
+            current_statement__ = 218;
             assign(transform_theta,
               cons_list(index_uni(i), nil_index_list()),
               inverseLogit(theta[(i - 1)], pstream__),
               "assigning variable transform_theta");
           } else {
-            current_statement__ = 239;
+            current_statement__ = 216;
             std::stringstream errmsg_stream__;
             errmsg_stream__ << "transform type is not valid";
             throw std::domain_error(errmsg_stream__.str());
           }
         }
       }}
-    current_statement__ = 252;
+    current_statement__ = 229;
     return transform_theta;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1182,36 +1159,36 @@ transformThetaMat(const T0__& transformType_arg__, const T1__& theta_arg__,
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 254;
+    current_statement__ = 231;
     validate_non_negative_index("transform_theta", "rows(theta)", rows(theta));
-    current_statement__ = 255;
+    current_statement__ = 232;
     validate_non_negative_index("transform_theta", "cols(theta)", cols(theta));
     Eigen::Matrix<local_scalar_t__, -1, -1> transform_theta;
     transform_theta = Eigen::Matrix<local_scalar_t__, -1, -1>(rows(theta), 
       cols(theta));
     stan::math::fill(transform_theta, DUMMY_VAR__);
     
-    current_statement__ = 260;
+    current_statement__ = 237;
     if (logical_eq(transformType[(1 - 1)], 0)) {
-      current_statement__ = 257;
+      current_statement__ = 234;
       assign(transform_theta, nil_index_list(),
         UserDefinedThetaTransformation(theta, pstream__),
         "assigning variable transform_theta");
-      current_statement__ = 258;
+      current_statement__ = 235;
       return transform_theta;
     } 
-    current_statement__ = 263;
+    current_statement__ = 240;
     if (logical_neq(num_elements(transformType), cols(theta))) {
-      current_statement__ = 261;
+      current_statement__ = 238;
       std::stringstream errmsg_stream__;
       errmsg_stream__ << "Number of transformations not equal to number of theta parameters";
       throw std::domain_error(errmsg_stream__.str());
     } 
-    current_statement__ = 276;
+    current_statement__ = 253;
     for (int i = 1; i <= cols(theta); ++i) {
-      current_statement__ = 274;
+      current_statement__ = 251;
       if (logical_eq(transformType[(i - 1)], 1)) {
-        current_statement__ = 272;
+        current_statement__ = 249;
         assign(transform_theta,
           cons_list(index_omni(), cons_list(index_uni(i), nil_index_list())),
           rvalue(theta,
@@ -1219,9 +1196,9 @@ transformThetaMat(const T0__& transformType_arg__, const T1__& theta_arg__,
               cons_list(index_uni(i), nil_index_list())), "theta"),
           "assigning variable transform_theta");
       } else {
-        current_statement__ = 271;
+        current_statement__ = 248;
         if (logical_eq(transformType[(i - 1)], 2)) {
-          current_statement__ = 269;
+          current_statement__ = 246;
           assign(transform_theta,
             cons_list(index_omni(),
               cons_list(index_uni(i), nil_index_list())),
@@ -1231,9 +1208,9 @@ transformThetaMat(const T0__& transformType_arg__, const T1__& theta_arg__,
                   cons_list(index_uni(i), nil_index_list())), "theta")),
             "assigning variable transform_theta");
         } else {
-          current_statement__ = 268;
+          current_statement__ = 245;
           if (logical_eq(transformType[(i - 1)], 3)) {
-            current_statement__ = 266;
+            current_statement__ = 243;
             assign(transform_theta,
               cons_list(index_omni(),
                 cons_list(index_uni(i), nil_index_list())),
@@ -1243,14 +1220,14 @@ transformThetaMat(const T0__& transformType_arg__, const T1__& theta_arg__,
                     cons_list(index_uni(i), nil_index_list())), "theta"), pstream__),
               "assigning variable transform_theta");
           } else {
-            current_statement__ = 264;
+            current_statement__ = 241;
             std::stringstream errmsg_stream__;
             errmsg_stream__ << "transform type is not valid";
             throw std::domain_error(errmsg_stream__.str());
           }
         }
       }}
-    current_statement__ = 277;
+    current_statement__ = 254;
     return transform_theta;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1280,30 +1257,30 @@ expLogitLinkTheta(const T0__& theta_arg__, std::ostream* pstream__) {
   (void) DUMMY_VAR__;  // suppress unused var warning
   
   try {
-    current_statement__ = 279;
+    current_statement__ = 256;
     validate_non_negative_index("transform_theta", "rows(theta)", rows(theta));
-    current_statement__ = 280;
+    current_statement__ = 257;
     validate_non_negative_index("transform_theta", "cols(theta)", cols(theta));
     Eigen::Matrix<local_scalar_t__, -1, -1> transform_theta;
     transform_theta = Eigen::Matrix<local_scalar_t__, -1, -1>(rows(theta), 
       cols(theta));
     stan::math::fill(transform_theta, DUMMY_VAR__);
     
-    current_statement__ = 282;
+    current_statement__ = 259;
     assign(transform_theta,
       cons_list(index_omni(), cons_list(index_uni(1), nil_index_list())),
       stan::math::exp(
         rvalue(theta,
           cons_list(index_omni(), cons_list(index_uni(1), nil_index_list())),
           "theta")), "assigning variable transform_theta");
-    current_statement__ = 283;
+    current_statement__ = 260;
     assign(transform_theta,
       cons_list(index_omni(), cons_list(index_uni(2), nil_index_list())),
       stan::math::exp(
         rvalue(theta,
           cons_list(index_omni(), cons_list(index_uni(2), nil_index_list())),
           "theta")), "assigning variable transform_theta");
-    current_statement__ = 284;
+    current_statement__ = 261;
     assign(transform_theta,
       cons_list(index_omni(), cons_list(index_uni(3), nil_index_list())),
       elt_divide(
@@ -1317,7 +1294,7 @@ expLogitLinkTheta(const T0__& theta_arg__, std::ostream* pstream__) {
               cons_list(index_omni(),
                 cons_list(index_uni(3), nil_index_list())), "theta")))),
       "assigning variable transform_theta");
-    current_statement__ = 285;
+    current_statement__ = 262;
     return transform_theta;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1388,70 +1365,70 @@ public:
       pos__ = std::numeric_limits<int>::min();
       
       pos__ = 1;
-      current_statement__ = 48;
+      current_statement__ = 30;
       context__.validate_dims("data initialization","N","int",
           context__.to_vec());
       N = std::numeric_limits<int>::min();
       
-      current_statement__ = 48;
+      current_statement__ = 30;
       N = context__.vals_i("N")[(1 - 1)];
-      current_statement__ = 48;
-      current_statement__ = 48;
+      current_statement__ = 30;
+      current_statement__ = 30;
       check_greater_or_equal(function__, "N", N, 1);
-      current_statement__ = 49;
+      current_statement__ = 31;
       context__.validate_dims("data initialization","d","int",
           context__.to_vec());
       d = std::numeric_limits<int>::min();
       
-      current_statement__ = 49;
+      current_statement__ = 31;
       d = context__.vals_i("d")[(1 - 1)];
-      current_statement__ = 49;
-      current_statement__ = 49;
+      current_statement__ = 31;
+      current_statement__ = 31;
       check_greater_or_equal(function__, "d", d, 1);
-      current_statement__ = 50;
+      current_statement__ = 32;
       validate_non_negative_index("u", "N", N);
-      current_statement__ = 51;
+      current_statement__ = 33;
       context__.validate_dims("data initialization","u","int",
           context__.to_vec(N));
       u = std::vector<int>(N, std::numeric_limits<int>::min());
       
-      current_statement__ = 51;
+      current_statement__ = 33;
       assign(u, nil_index_list(), context__.vals_i("u"),
         "assigning variable u");
-      current_statement__ = 52;
+      current_statement__ = 34;
       validate_non_negative_index("tpt", "N", N);
-      current_statement__ = 53;
+      current_statement__ = 35;
       context__.validate_dims("data initialization","tpt","double",
           context__.to_vec(N));
       tpt = std::vector<double>(N, std::numeric_limits<double>::quiet_NaN());
       
-      current_statement__ = 53;
+      current_statement__ = 35;
       assign(tpt, nil_index_list(), context__.vals_r("tpt"),
         "assigning variable tpt");
-      current_statement__ = 54;
+      current_statement__ = 36;
       context__.validate_dims("data initialization","U","int",
           context__.to_vec());
       U = std::numeric_limits<int>::min();
       
-      current_statement__ = 54;
+      current_statement__ = 36;
       U = context__.vals_i("U")[(1 - 1)];
-      current_statement__ = 55;
+      current_statement__ = 37;
       context__.validate_dims("data initialization","pTheta","int",
           context__.to_vec());
       pTheta = std::numeric_limits<int>::min();
       
-      current_statement__ = 55;
+      current_statement__ = 37;
       pTheta = context__.vals_i("pTheta")[(1 - 1)];
-      current_statement__ = 56;
+      current_statement__ = 38;
       context__.validate_dims("data initialization","nrowXTheta","int",
           context__.to_vec());
       nrowXTheta = std::numeric_limits<int>::min();
       
-      current_statement__ = 56;
+      current_statement__ = 38;
       nrowXTheta = context__.vals_i("nrowXTheta")[(1 - 1)];
-      current_statement__ = 57;
+      current_statement__ = 39;
       validate_non_negative_index("Z", "N", N);
-      current_statement__ = 58;
+      current_statement__ = 40;
       context__.validate_dims("data initialization","Z","double",
           context__.to_vec(N));
       Z = Eigen::Matrix<double, -1, 1>(N);
@@ -1459,24 +1436,24 @@ public:
       
       {
         std::vector<local_scalar_t__> Z_flat__;
-        current_statement__ = 58;
+        current_statement__ = 40;
         assign(Z_flat__, nil_index_list(), context__.vals_r("Z"),
           "assigning variable Z_flat__");
-        current_statement__ = 58;
+        current_statement__ = 40;
         pos__ = 1;
-        current_statement__ = 58;
+        current_statement__ = 40;
         for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-          current_statement__ = 58;
+          current_statement__ = 40;
           assign(Z, cons_list(index_uni(sym1__), nil_index_list()),
             Z_flat__[(pos__ - 1)], "assigning variable Z");
-          current_statement__ = 58;
+          current_statement__ = 40;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 59;
+      current_statement__ = 41;
       validate_non_negative_index("XTheta", "U", U);
-      current_statement__ = 60;
+      current_statement__ = 42;
       validate_non_negative_index("XTheta", "pTheta", pTheta);
-      current_statement__ = 61;
+      current_statement__ = 43;
       context__.validate_dims("data initialization","XTheta","double",
           context__.to_vec(U, pTheta));
       XTheta = Eigen::Matrix<double, -1, -1>(U, pTheta);
@@ -1484,47 +1461,47 @@ public:
       
       {
         std::vector<local_scalar_t__> XTheta_flat__;
-        current_statement__ = 61;
+        current_statement__ = 43;
         assign(XTheta_flat__, nil_index_list(), context__.vals_r("XTheta"),
           "assigning variable XTheta_flat__");
-        current_statement__ = 61;
+        current_statement__ = 43;
         pos__ = 1;
-        current_statement__ = 61;
+        current_statement__ = 43;
         for (int sym1__ = 1; sym1__ <= pTheta; ++sym1__) {
-          current_statement__ = 61;
+          current_statement__ = 43;
           for (int sym2__ = 1; sym2__ <= U; ++sym2__) {
-            current_statement__ = 61;
+            current_statement__ = 43;
             assign(XTheta,
               cons_list(index_uni(sym2__),
                 cons_list(index_uni(sym1__), nil_index_list())),
               XTheta_flat__[(pos__ - 1)], "assigning variable XTheta");
-            current_statement__ = 61;
+            current_statement__ = 43;
             pos__ = (pos__ + 1);}}
       }
-      current_statement__ = 62;
+      current_statement__ = 44;
       context__.validate_dims("data initialization","hasIntercept","int",
           context__.to_vec());
       hasIntercept = std::numeric_limits<int>::min();
       
-      current_statement__ = 62;
+      current_statement__ = 44;
       hasIntercept = context__.vals_i("hasIntercept")[(1 - 1)];
-      current_statement__ = 62;
-      current_statement__ = 62;
+      current_statement__ = 44;
+      current_statement__ = 44;
       check_greater_or_equal(function__, "hasIntercept", hasIntercept, 0);
-      current_statement__ = 62;
-      current_statement__ = 62;
+      current_statement__ = 44;
+      current_statement__ = 44;
       check_less_or_equal(function__, "hasIntercept", hasIntercept, 1);
-      current_statement__ = 63;
+      current_statement__ = 45;
       context__.validate_dims("data initialization","meanParameterization",
           "int",context__.to_vec());
       meanParameterization = std::numeric_limits<int>::min();
       
-      current_statement__ = 63;
+      current_statement__ = 45;
       meanParameterization = context__.vals_i("meanParameterization")[
           (1 - 1)];
-      current_statement__ = 64;
+      current_statement__ = 46;
       validate_non_negative_index("transformSpecification", "d", d);
-      current_statement__ = 65;
+      current_statement__ = 47;
       context__.validate_dims("data initialization","transformSpecification",
           "double",context__.to_vec(d));
       transformSpecification = Eigen::Matrix<double, -1, 1>(d);
@@ -1532,25 +1509,25 @@ public:
       
       {
         std::vector<local_scalar_t__> transformSpecification_flat__;
-        current_statement__ = 65;
+        current_statement__ = 47;
         assign(transformSpecification_flat__, nil_index_list(),
           context__.vals_r("transformSpecification"),
           "assigning variable transformSpecification_flat__");
-        current_statement__ = 65;
+        current_statement__ = 47;
         pos__ = 1;
-        current_statement__ = 65;
+        current_statement__ = 47;
         for (int sym1__ = 1; sym1__ <= d; ++sym1__) {
-          current_statement__ = 65;
+          current_statement__ = 47;
           assign(transformSpecification,
             cons_list(index_uni(sym1__), nil_index_list()),
             transformSpecification_flat__[(pos__ - 1)],
             "assigning variable transformSpecification");
-          current_statement__ = 65;
+          current_statement__ = 47;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 66;
+      current_statement__ = 48;
       validate_non_negative_index("priorThetaSpecification", "d", d);
-      current_statement__ = 67;
+      current_statement__ = 49;
       context__.validate_dims("data initialization",
           "priorThetaSpecification","double",context__.to_vec(d));
       priorThetaSpecification = Eigen::Matrix<double, -1, 1>(d);
@@ -1558,25 +1535,25 @@ public:
       
       {
         std::vector<local_scalar_t__> priorThetaSpecification_flat__;
-        current_statement__ = 67;
+        current_statement__ = 49;
         assign(priorThetaSpecification_flat__, nil_index_list(),
           context__.vals_r("priorThetaSpecification"),
           "assigning variable priorThetaSpecification_flat__");
-        current_statement__ = 67;
+        current_statement__ = 49;
         pos__ = 1;
-        current_statement__ = 67;
+        current_statement__ = 49;
         for (int sym1__ = 1; sym1__ <= d; ++sym1__) {
-          current_statement__ = 67;
+          current_statement__ = 49;
           assign(priorThetaSpecification,
             cons_list(index_uni(sym1__), nil_index_list()),
             priorThetaSpecification_flat__[(pos__ - 1)],
             "assigning variable priorThetaSpecification");
-          current_statement__ = 67;
+          current_statement__ = 49;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 68;
+      current_statement__ = 50;
       validate_non_negative_index("priorSigmaThetaSpecification", "d", d);
-      current_statement__ = 69;
+      current_statement__ = 51;
       context__.validate_dims("data initialization",
           "priorSigmaThetaSpecification","double",context__.to_vec(d));
       priorSigmaThetaSpecification = Eigen::Matrix<double, -1, 1>(d);
@@ -1584,48 +1561,48 @@ public:
       
       {
         std::vector<local_scalar_t__> priorSigmaThetaSpecification_flat__;
-        current_statement__ = 69;
+        current_statement__ = 51;
         assign(priorSigmaThetaSpecification_flat__, nil_index_list(),
           context__.vals_r("priorSigmaThetaSpecification"),
           "assigning variable priorSigmaThetaSpecification_flat__");
-        current_statement__ = 69;
+        current_statement__ = 51;
         pos__ = 1;
-        current_statement__ = 69;
+        current_statement__ = 51;
         for (int sym1__ = 1; sym1__ <= d; ++sym1__) {
-          current_statement__ = 69;
+          current_statement__ = 51;
           assign(priorSigmaThetaSpecification,
             cons_list(index_uni(sym1__), nil_index_list()),
             priorSigmaThetaSpecification_flat__[(pos__ - 1)],
             "assigning variable priorSigmaThetaSpecification");
-          current_statement__ = 69;
+          current_statement__ = 51;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 70;
+      current_statement__ = 52;
       context__.validate_dims("data initialization",
           "priorObsVarSpecification","int",context__.to_vec());
       priorObsVarSpecification = std::numeric_limits<int>::min();
       
-      current_statement__ = 70;
+      current_statement__ = 52;
       priorObsVarSpecification = context__.vals_i("priorObsVarSpecification")[
           (1 - 1)];
-      current_statement__ = 71;
+      current_statement__ = 53;
       context__.validate_dims("data initialization","run_estimation","int",
           context__.to_vec());
       run_estimation = std::numeric_limits<int>::min();
       
-      current_statement__ = 71;
+      current_statement__ = 53;
       run_estimation = context__.vals_i("run_estimation")[(1 - 1)];
-      current_statement__ = 71;
-      current_statement__ = 71;
+      current_statement__ = 53;
+      current_statement__ = 53;
       check_greater_or_equal(function__, "run_estimation", run_estimation, 0);
-      current_statement__ = 71;
-      current_statement__ = 71;
+      current_statement__ = 53;
+      current_statement__ = 53;
       check_less_or_equal(function__, "run_estimation", run_estimation, 1);
-      current_statement__ = 72;
+      current_statement__ = 54;
       validate_non_negative_index("pThetaParam1", "U", U);
-      current_statement__ = 73;
+      current_statement__ = 55;
       validate_non_negative_index("pThetaParam1", "d", d);
-      current_statement__ = 74;
+      current_statement__ = 56;
       context__.validate_dims("data initialization","pThetaParam1","double",
           context__.to_vec(U, d));
       pThetaParam1 = Eigen::Matrix<double, -1, -1>(U, d);
@@ -1633,30 +1610,30 @@ public:
       
       {
         std::vector<local_scalar_t__> pThetaParam1_flat__;
-        current_statement__ = 74;
+        current_statement__ = 56;
         assign(pThetaParam1_flat__, nil_index_list(),
           context__.vals_r("pThetaParam1"),
           "assigning variable pThetaParam1_flat__");
-        current_statement__ = 74;
+        current_statement__ = 56;
         pos__ = 1;
-        current_statement__ = 74;
+        current_statement__ = 56;
         for (int sym1__ = 1; sym1__ <= d; ++sym1__) {
-          current_statement__ = 74;
+          current_statement__ = 56;
           for (int sym2__ = 1; sym2__ <= U; ++sym2__) {
-            current_statement__ = 74;
+            current_statement__ = 56;
             assign(pThetaParam1,
               cons_list(index_uni(sym2__),
                 cons_list(index_uni(sym1__), nil_index_list())),
               pThetaParam1_flat__[(pos__ - 1)],
               "assigning variable pThetaParam1");
-            current_statement__ = 74;
+            current_statement__ = 56;
             pos__ = (pos__ + 1);}}
       }
-      current_statement__ = 75;
+      current_statement__ = 57;
       validate_non_negative_index("pThetaParam2", "U", U);
-      current_statement__ = 76;
+      current_statement__ = 58;
       validate_non_negative_index("pThetaParam2", "d", d);
-      current_statement__ = 77;
+      current_statement__ = 59;
       context__.validate_dims("data initialization","pThetaParam2","double",
           context__.to_vec(U, d));
       pThetaParam2 = Eigen::Matrix<double, -1, -1>(U, d);
@@ -1664,29 +1641,29 @@ public:
       
       {
         std::vector<local_scalar_t__> pThetaParam2_flat__;
-        current_statement__ = 77;
+        current_statement__ = 59;
         assign(pThetaParam2_flat__, nil_index_list(),
           context__.vals_r("pThetaParam2"),
           "assigning variable pThetaParam2_flat__");
-        current_statement__ = 77;
+        current_statement__ = 59;
         pos__ = 1;
-        current_statement__ = 77;
+        current_statement__ = 59;
         for (int sym1__ = 1; sym1__ <= d; ++sym1__) {
-          current_statement__ = 77;
+          current_statement__ = 59;
           for (int sym2__ = 1; sym2__ <= U; ++sym2__) {
-            current_statement__ = 77;
+            current_statement__ = 59;
             assign(pThetaParam2,
               cons_list(index_uni(sym2__),
                 cons_list(index_uni(sym1__), nil_index_list())),
               pThetaParam2_flat__[(pos__ - 1)],
               "assigning variable pThetaParam2");
-            current_statement__ = 77;
+            current_statement__ = 59;
             pos__ = (pos__ + 1);}}
       }
-      current_statement__ = 78;
+      current_statement__ = 60;
       validate_non_negative_index("pBetaThetaParam1", "pTheta * d",
                                   (pTheta * d));
-      current_statement__ = 79;
+      current_statement__ = 61;
       context__.validate_dims("data initialization","pBetaThetaParam1",
           "double",context__.to_vec((pTheta * d)));
       pBetaThetaParam1 = Eigen::Matrix<double, -1, 1>((pTheta * d));
@@ -1694,26 +1671,26 @@ public:
       
       {
         std::vector<local_scalar_t__> pBetaThetaParam1_flat__;
-        current_statement__ = 79;
+        current_statement__ = 61;
         assign(pBetaThetaParam1_flat__, nil_index_list(),
           context__.vals_r("pBetaThetaParam1"),
           "assigning variable pBetaThetaParam1_flat__");
-        current_statement__ = 79;
+        current_statement__ = 61;
         pos__ = 1;
-        current_statement__ = 79;
+        current_statement__ = 61;
         for (int sym1__ = 1; sym1__ <= (pTheta * d); ++sym1__) {
-          current_statement__ = 79;
+          current_statement__ = 61;
           assign(pBetaThetaParam1,
             cons_list(index_uni(sym1__), nil_index_list()),
             pBetaThetaParam1_flat__[(pos__ - 1)],
             "assigning variable pBetaThetaParam1");
-          current_statement__ = 79;
+          current_statement__ = 61;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 80;
+      current_statement__ = 62;
       validate_non_negative_index("pBetaThetaParam2", "pTheta * d",
                                   (pTheta * d));
-      current_statement__ = 81;
+      current_statement__ = 63;
       context__.validate_dims("data initialization","pBetaThetaParam2",
           "double",context__.to_vec((pTheta * d)));
       pBetaThetaParam2 = Eigen::Matrix<double, -1, 1>((pTheta * d));
@@ -1721,23 +1698,23 @@ public:
       
       {
         std::vector<local_scalar_t__> pBetaThetaParam2_flat__;
-        current_statement__ = 81;
+        current_statement__ = 63;
         assign(pBetaThetaParam2_flat__, nil_index_list(),
           context__.vals_r("pBetaThetaParam2"),
           "assigning variable pBetaThetaParam2_flat__");
-        current_statement__ = 81;
+        current_statement__ = 63;
         pos__ = 1;
-        current_statement__ = 81;
+        current_statement__ = 63;
         for (int sym1__ = 1; sym1__ <= (pTheta * d); ++sym1__) {
-          current_statement__ = 81;
+          current_statement__ = 63;
           assign(pBetaThetaParam2,
             cons_list(index_uni(sym1__), nil_index_list()),
             pBetaThetaParam2_flat__[(pos__ - 1)],
             "assigning variable pBetaThetaParam2");
-          current_statement__ = 81;
+          current_statement__ = 63;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 82;
+      current_statement__ = 64;
       context__.validate_dims("data initialization","pObsVar","double",
           context__.to_vec(2));
       pObsVar = Eigen::Matrix<double, -1, 1>(2);
@@ -1745,22 +1722,22 @@ public:
       
       {
         std::vector<local_scalar_t__> pObsVar_flat__;
-        current_statement__ = 82;
+        current_statement__ = 64;
         assign(pObsVar_flat__, nil_index_list(), context__.vals_r("pObsVar"),
           "assigning variable pObsVar_flat__");
-        current_statement__ = 82;
+        current_statement__ = 64;
         pos__ = 1;
-        current_statement__ = 82;
+        current_statement__ = 64;
         for (int sym1__ = 1; sym1__ <= 2; ++sym1__) {
-          current_statement__ = 82;
+          current_statement__ = 64;
           assign(pObsVar, cons_list(index_uni(sym1__), nil_index_list()),
             pObsVar_flat__[(pos__ - 1)], "assigning variable pObsVar");
-          current_statement__ = 82;
+          current_statement__ = 64;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 83;
+      current_statement__ = 65;
       validate_non_negative_index("pSigmaThetaParam1", "d", d);
-      current_statement__ = 84;
+      current_statement__ = 66;
       context__.validate_dims("data initialization","pSigmaThetaParam1",
           "double",context__.to_vec(d));
       pSigmaThetaParam1 = Eigen::Matrix<double, -1, 1>(d);
@@ -1768,25 +1745,25 @@ public:
       
       {
         std::vector<local_scalar_t__> pSigmaThetaParam1_flat__;
-        current_statement__ = 84;
+        current_statement__ = 66;
         assign(pSigmaThetaParam1_flat__, nil_index_list(),
           context__.vals_r("pSigmaThetaParam1"),
           "assigning variable pSigmaThetaParam1_flat__");
-        current_statement__ = 84;
+        current_statement__ = 66;
         pos__ = 1;
-        current_statement__ = 84;
+        current_statement__ = 66;
         for (int sym1__ = 1; sym1__ <= d; ++sym1__) {
-          current_statement__ = 84;
+          current_statement__ = 66;
           assign(pSigmaThetaParam1,
             cons_list(index_uni(sym1__), nil_index_list()),
             pSigmaThetaParam1_flat__[(pos__ - 1)],
             "assigning variable pSigmaThetaParam1");
-          current_statement__ = 84;
+          current_statement__ = 66;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 85;
+      current_statement__ = 67;
       validate_non_negative_index("pSigmaThetaParam2", "d", d);
-      current_statement__ = 86;
+      current_statement__ = 68;
       context__.validate_dims("data initialization","pSigmaThetaParam2",
           "double",context__.to_vec(d));
       pSigmaThetaParam2 = Eigen::Matrix<double, -1, 1>(d);
@@ -1794,62 +1771,52 @@ public:
       
       {
         std::vector<local_scalar_t__> pSigmaThetaParam2_flat__;
-        current_statement__ = 86;
+        current_statement__ = 68;
         assign(pSigmaThetaParam2_flat__, nil_index_list(),
           context__.vals_r("pSigmaThetaParam2"),
           "assigning variable pSigmaThetaParam2_flat__");
-        current_statement__ = 86;
+        current_statement__ = 68;
         pos__ = 1;
-        current_statement__ = 86;
+        current_statement__ = 68;
         for (int sym1__ = 1; sym1__ <= d; ++sym1__) {
-          current_statement__ = 86;
+          current_statement__ = 68;
           assign(pSigmaThetaParam2,
             cons_list(index_uni(sym1__), nil_index_list()),
             pSigmaThetaParam2_flat__[(pos__ - 1)],
             "assigning variable pSigmaThetaParam2");
-          current_statement__ = 86;
+          current_statement__ = 68;
           pos__ = (pos__ + 1);}
       }
-      current_statement__ = 87;
+      current_statement__ = 69;
       validate_non_negative_index("Theta", "U", U);
-      current_statement__ = 88;
+      current_statement__ = 70;
       validate_non_negative_index("Theta", "d", d);
-      current_statement__ = 89;
+      current_statement__ = 71;
       validate_non_negative_index("SigmaTheta", "d", d);
-      current_statement__ = 90;
+      current_statement__ = 72;
       validate_non_negative_index("betaTheta", "pTheta", pTheta);
-      current_statement__ = 91;
+      current_statement__ = 73;
       validate_non_negative_index("betaTheta", "d", d);
-      current_statement__ = 92;
+      current_statement__ = 74;
       validate_non_negative_index("mu", "N", N);
-      current_statement__ = 93;
+      current_statement__ = 75;
       validate_non_negative_index("linear_pred_theta", "U", U);
-      current_statement__ = 94;
+      current_statement__ = 76;
       validate_non_negative_index("linear_pred_theta", "d", d);
-      current_statement__ = 95;
+      current_statement__ = 77;
       longSigmaTheta_1dim__ = std::numeric_limits<int>::min();
       
-      current_statement__ = 95;
+      current_statement__ = 77;
       longSigmaTheta_1dim__ = (pTheta * d);
-      current_statement__ = 95;
+      current_statement__ = 77;
       validate_non_negative_index("longSigmaTheta", "pTheta * d",
                                   longSigmaTheta_1dim__);
-      current_statement__ = 96;
+      current_statement__ = 78;
       validate_non_negative_index("transTheta", "U", U);
-      current_statement__ = 97;
+      current_statement__ = 79;
       validate_non_negative_index("transTheta", "d", d);
-      current_statement__ = 98;
+      current_statement__ = 80;
       validate_non_negative_index("log_lik", "N", N);
-      current_statement__ = 99;
-      validate_non_negative_index("theta_samp", "U", U);
-      current_statement__ = 100;
-      validate_non_negative_index("theta_samp", "d", d);
-      current_statement__ = 101;
-      validate_non_negative_index("marg_log_lik_samp", "N", N);
-      current_statement__ = 102;
-      validate_non_negative_index("mu_temp", "N", N);
-      current_statement__ = 103;
-      validate_non_negative_index("marg_log_lik", "N", N);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
       // Next line prevents compiler griping about no return
@@ -1964,15 +1931,15 @@ public:
       assign(linear_pred_theta, nil_index_list(),
         multiply(XTheta, betaTheta), "assigning variable linear_pred_theta");
       {
-        current_statement__ = 38;
+        current_statement__ = 20;
         lp_accum__.add(
           normal_lpdf<propto__>(to_vector(transpose(betaTheta)),
             pBetaThetaParam1, pBetaThetaParam2));
-        current_statement__ = 39;
+        current_statement__ = 21;
         lp_accum__.add(
           SigmaThetaPriors(SigmaTheta, pSigmaThetaParam1, pSigmaThetaParam2,
             priorSigmaThetaSpecification, pstream__));
-        current_statement__ = 40;
+        current_statement__ = 22;
         lp_accum__.add(
           ThetaPriors(
             rvalue(Theta,
@@ -1985,13 +1952,13 @@ public:
               cons_list(index_min((hasIntercept + 1)),
                 cons_list(index_omni(), nil_index_list())), "pThetaParam2"),
             priorThetaSpecification, pstream__));
-        current_statement__ = 41;
+        current_statement__ = 23;
         lp_accum__.add(
           ObsVarPriors(ObsVar, pObsVar[(1 - 1)], pObsVar[(2 - 1)],
             priorObsVarSpecification, pstream__));
-        current_statement__ = 44;
+        current_statement__ = 26;
         for (int i = 1; i <= U; ++i) {
-          current_statement__ = 42;
+          current_statement__ = 24;
           lp_accum__.add(
             normal_lpdf<propto__>(
               rvalue(Theta, cons_list(index_uni(i), nil_index_list()),
@@ -2000,9 +1967,9 @@ public:
                 rvalue(linear_pred_theta,
                   cons_list(index_uni(i), nil_index_list()),
                   "linear_pred_theta")), stan::math::sqrt(SigmaTheta)));}
-        current_statement__ = 47;
+        current_statement__ = 29;
         if (logical_eq(run_estimation, 1)) {
-          current_statement__ = 45;
+          current_statement__ = 27;
           lp_accum__.add(
             normal_lpdf<propto__>(Z, mu, stan::math::sqrt(ObsVar)));
         } 
@@ -2148,93 +2115,14 @@ public:
       log_lik = Eigen::Matrix<double, -1, 1>(N);
       stan::math::fill(log_lik, std::numeric_limits<double>::quiet_NaN());
       
-      std::vector<std::vector<std::vector<double>>> theta_samp;
-      theta_samp = std::vector<std::vector<std::vector<double>>>(U, std::vector<std::vector<double>>(d, std::vector<double>(10000, std::numeric_limits<double>::quiet_NaN())));
-      
-      Eigen::Matrix<double, -1, -1> marg_log_lik_samp;
-      marg_log_lik_samp = Eigen::Matrix<double, -1, -1>(N, 10000);
-      stan::math::fill(marg_log_lik_samp, std::numeric_limits<double>::quiet_NaN());
-      
-      Eigen::Matrix<double, -1, 1> mu_temp;
-      mu_temp = Eigen::Matrix<double, -1, 1>(N);
-      stan::math::fill(mu_temp, std::numeric_limits<double>::quiet_NaN());
-      
-      Eigen::Matrix<double, -1, 1> marg_log_lik;
-      marg_log_lik = Eigen::Matrix<double, -1, 1>(N);
-      stan::math::fill(marg_log_lik, std::numeric_limits<double>::quiet_NaN());
-      
-      current_statement__ = 23;
+      current_statement__ = 19;
       for (int i = 1; i <= N; ++i) {
-        current_statement__ = 21;
+        current_statement__ = 17;
         assign(log_lik, cons_list(index_uni(i), nil_index_list()),
           normal_lpdf<false>(Z[(i - 1)], mu[(i - 1)],
             stan::math::sqrt(ObsVar)), "assigning variable log_lik");}
-      current_statement__ = 28;
-      for (int i = 1; i <= U; ++i) {
-        current_statement__ = 26;
-        for (int j = 1; j <= 10000; ++j) {
-          current_statement__ = 24;
-          assign(theta_samp,
-            cons_list(index_uni(i),
-              cons_list(index_min_max(1, d),
-                cons_list(index_uni(j), nil_index_list()))),
-            normal_rng(
-              to_vector(
-                rvalue(linear_pred_theta,
-                  cons_list(index_uni(i), nil_index_list()),
-                  "linear_pred_theta")), stan::math::sqrt(SigmaTheta),
-              base_rng__), "assigning variable theta_samp");}}
-      current_statement__ = 34;
-      for (int j = 1; j <= 10000; ++j) {
-        current_statement__ = 29;
-        assign(mu_temp, nil_index_list(),
-          growthMean(N, u, tpt,
-            transformThetaMat(transformSpecification,
-              to_matrix(
-                rvalue(theta_samp,
-                  cons_list(index_omni(),
-                    cons_list(index_omni(),
-                      cons_list(index_uni(j), nil_index_list()))),
-                  "theta_samp")), pstream__),
-            meanParameterization, pstream__), "assigning variable mu_temp");
-        current_statement__ = 32;
-        for (int i = 1; i <= N; ++i) {
-          current_statement__ = 30;
-          assign(marg_log_lik_samp,
-            cons_list(index_uni(i),
-              cons_list(index_uni(j), nil_index_list())),
-            stan::math::exp(
-              normal_lpdf<false>(Z[(i - 1)], mu_temp[(i - 1)],
-                stan::math::sqrt(ObsVar))),
-            "assigning variable marg_log_lik_samp");}}
-      current_statement__ = 37;
-      for (int i = 1; i <= N; ++i) {
-        current_statement__ = 35;
-        assign(marg_log_lik, cons_list(index_uni(i), nil_index_list()),
-          stan::math::log(
-            mean(
-              rvalue(marg_log_lik_samp,
-                cons_list(index_uni(i),
-                  cons_list(index_min_max(1, 10000), nil_index_list())),
-                "marg_log_lik_samp"))), "assigning variable marg_log_lik");}
       for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
         vars__.emplace_back(log_lik[(sym1__ - 1)]);}
-      for (int sym1__ = 1; sym1__ <= 10000; ++sym1__) {
-        for (int sym2__ = 1; sym2__ <= d; ++sym2__) {
-          for (int sym3__ = 1; sym3__ <= U; ++sym3__) {
-            vars__.emplace_back(
-              theta_samp[(sym3__ - 1)][(sym2__ - 1)][(sym1__ - 1)]);}}}
-      for (int sym1__ = 1; sym1__ <= 10000; ++sym1__) {
-        for (int sym2__ = 1; sym2__ <= N; ++sym2__) {
-          vars__.emplace_back(
-            rvalue(marg_log_lik_samp,
-              cons_list(index_uni(sym2__),
-                cons_list(index_uni(sym1__), nil_index_list())),
-              "marg_log_lik_samp"));}}
-      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-        vars__.emplace_back(mu_temp[(sym1__ - 1)]);}
-      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-        vars__.emplace_back(marg_log_lik[(sym1__ - 1)]);}
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
       // Next line prevents compiler griping about no return
@@ -2378,10 +2266,6 @@ public:
     names__.emplace_back("longSigmaTheta");
     names__.emplace_back("transTheta");
     names__.emplace_back("log_lik");
-    names__.emplace_back("theta_samp");
-    names__.emplace_back("marg_log_lik_samp");
-    names__.emplace_back("mu_temp");
-    names__.emplace_back("marg_log_lik");
     } // get_param_names() 
     
   inline void get_dims(std::vector<std::vector<size_t>>& dimss__) const {
@@ -2407,17 +2291,6 @@ public:
     
     dimss__.emplace_back(std::vector<size_t>{static_cast<size_t>(U),
                                              static_cast<size_t>(d)});
-    
-    dimss__.emplace_back(std::vector<size_t>{static_cast<size_t>(N)});
-    
-    dimss__.emplace_back(std::vector<size_t>{static_cast<size_t>(U),
-                                             static_cast<size_t>(d),
-                                             static_cast<size_t>(10000)});
-    
-    dimss__.emplace_back(std::vector<size_t>{static_cast<size_t>(N),
-                                             static_cast<size_t>(10000)});
-    
-    dimss__.emplace_back(std::vector<size_t>{static_cast<size_t>(N)});
     
     dimss__.emplace_back(std::vector<size_t>{static_cast<size_t>(N)});
     
@@ -2478,31 +2351,6 @@ public:
         {
           param_names__.emplace_back(std::string() + "log_lik" + '.' + std::to_string(sym1__));
         }}
-      for (int sym1__ = 1; sym1__ <= 10000; ++sym1__) {
-        {
-          for (int sym2__ = 1; sym2__ <= d; ++sym2__) {
-            {
-              for (int sym3__ = 1; sym3__ <= U; ++sym3__) {
-                {
-                  param_names__.emplace_back(std::string() + "theta_samp" + '.' + std::to_string(sym3__) + '.' + std::to_string(sym2__) + '.' + std::to_string(sym1__));
-                }}
-            }}
-        }}
-      for (int sym1__ = 1; sym1__ <= 10000; ++sym1__) {
-        {
-          for (int sym2__ = 1; sym2__ <= N; ++sym2__) {
-            {
-              param_names__.emplace_back(std::string() + "marg_log_lik_samp" + '.' + std::to_string(sym2__) + '.' + std::to_string(sym1__));
-            }}
-        }}
-      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-        {
-          param_names__.emplace_back(std::string() + "mu_temp" + '.' + std::to_string(sym1__));
-        }}
-      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-        {
-          param_names__.emplace_back(std::string() + "marg_log_lik" + '.' + std::to_string(sym1__));
-        }}
     }
     
     } // constrained_param_names() 
@@ -2562,44 +2410,19 @@ public:
         {
           param_names__.emplace_back(std::string() + "log_lik" + '.' + std::to_string(sym1__));
         }}
-      for (int sym1__ = 1; sym1__ <= 10000; ++sym1__) {
-        {
-          for (int sym2__ = 1; sym2__ <= d; ++sym2__) {
-            {
-              for (int sym3__ = 1; sym3__ <= U; ++sym3__) {
-                {
-                  param_names__.emplace_back(std::string() + "theta_samp" + '.' + std::to_string(sym3__) + '.' + std::to_string(sym2__) + '.' + std::to_string(sym1__));
-                }}
-            }}
-        }}
-      for (int sym1__ = 1; sym1__ <= 10000; ++sym1__) {
-        {
-          for (int sym2__ = 1; sym2__ <= N; ++sym2__) {
-            {
-              param_names__.emplace_back(std::string() + "marg_log_lik_samp" + '.' + std::to_string(sym2__) + '.' + std::to_string(sym1__));
-            }}
-        }}
-      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-        {
-          param_names__.emplace_back(std::string() + "mu_temp" + '.' + std::to_string(sym1__));
-        }}
-      for (int sym1__ = 1; sym1__ <= N; ++sym1__) {
-        {
-          param_names__.emplace_back(std::string() + "marg_log_lik" + '.' + std::to_string(sym1__));
-        }}
     }
     
     } // unconstrained_param_names() 
     
   inline std::string get_constrained_sizedtypes() const {
     stringstream s__;
-    s__ << "[{\"name\":\"Theta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"parameters\"},{\"name\":\"SigmaTheta\",\"type\":{\"name\":\"vector\",\"length\":" << d << "},\"block\":\"parameters\"},{\"name\":\"betaTheta\",\"type\":{\"name\":\"matrix\",\"rows\":" << pTheta << ",\"cols\":" << d << "},\"block\":\"parameters\"},{\"name\":\"ObsVar\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"transformed_parameters\"},{\"name\":\"linear_pred_theta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"transformed_parameters\"},{\"name\":\"longSigmaTheta\",\"type\":{\"name\":\"vector\",\"length\":" << longSigmaTheta_1dim__ << "},\"block\":\"transformed_parameters\"},{\"name\":\"transTheta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"transformed_parameters\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"generated_quantities\"},{\"name\":\"theta_samp\",\"type\":{\"name\":\"array\",\"length\":" << U << ",\"element_type\":{\"name\":\"array\",\"length\":" << d << ",\"element_type\":{\"name\":\"array\",\"length\":" << 10000 << ",\"element_type\":{\"name\":\"real\"}}}},\"block\":\"generated_quantities\"},{\"name\":\"marg_log_lik_samp\",\"type\":{\"name\":\"matrix\",\"rows\":" << N << ",\"cols\":" << 10000 << "},\"block\":\"generated_quantities\"},{\"name\":\"mu_temp\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"generated_quantities\"},{\"name\":\"marg_log_lik\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"generated_quantities\"}]";
+    s__ << "[{\"name\":\"Theta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"parameters\"},{\"name\":\"SigmaTheta\",\"type\":{\"name\":\"vector\",\"length\":" << d << "},\"block\":\"parameters\"},{\"name\":\"betaTheta\",\"type\":{\"name\":\"matrix\",\"rows\":" << pTheta << ",\"cols\":" << d << "},\"block\":\"parameters\"},{\"name\":\"ObsVar\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"transformed_parameters\"},{\"name\":\"linear_pred_theta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"transformed_parameters\"},{\"name\":\"longSigmaTheta\",\"type\":{\"name\":\"vector\",\"length\":" << longSigmaTheta_1dim__ << "},\"block\":\"transformed_parameters\"},{\"name\":\"transTheta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"transformed_parameters\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"generated_quantities\"}]";
     return s__.str();
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     stringstream s__;
-    s__ << "[{\"name\":\"Theta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"parameters\"},{\"name\":\"SigmaTheta\",\"type\":{\"name\":\"vector\",\"length\":" << d << "},\"block\":\"parameters\"},{\"name\":\"betaTheta\",\"type\":{\"name\":\"matrix\",\"rows\":" << pTheta << ",\"cols\":" << d << "},\"block\":\"parameters\"},{\"name\":\"ObsVar\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"transformed_parameters\"},{\"name\":\"linear_pred_theta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"transformed_parameters\"},{\"name\":\"longSigmaTheta\",\"type\":{\"name\":\"vector\",\"length\":" << longSigmaTheta_1dim__ << "},\"block\":\"transformed_parameters\"},{\"name\":\"transTheta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"transformed_parameters\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"generated_quantities\"},{\"name\":\"theta_samp\",\"type\":{\"name\":\"array\",\"length\":" << U << ",\"element_type\":{\"name\":\"array\",\"length\":" << d << ",\"element_type\":{\"name\":\"array\",\"length\":" << 10000 << ",\"element_type\":{\"name\":\"real\"}}}},\"block\":\"generated_quantities\"},{\"name\":\"marg_log_lik_samp\",\"type\":{\"name\":\"matrix\",\"rows\":" << N << ",\"cols\":" << 10000 << "},\"block\":\"generated_quantities\"},{\"name\":\"mu_temp\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"generated_quantities\"},{\"name\":\"marg_log_lik\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"generated_quantities\"}]";
+    s__ << "[{\"name\":\"Theta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"parameters\"},{\"name\":\"SigmaTheta\",\"type\":{\"name\":\"vector\",\"length\":" << d << "},\"block\":\"parameters\"},{\"name\":\"betaTheta\",\"type\":{\"name\":\"matrix\",\"rows\":" << pTheta << ",\"cols\":" << d << "},\"block\":\"parameters\"},{\"name\":\"ObsVar\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"transformed_parameters\"},{\"name\":\"linear_pred_theta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"transformed_parameters\"},{\"name\":\"longSigmaTheta\",\"type\":{\"name\":\"vector\",\"length\":" << longSigmaTheta_1dim__ << "},\"block\":\"transformed_parameters\"},{\"name\":\"transTheta\",\"type\":{\"name\":\"matrix\",\"rows\":" << U << ",\"cols\":" << d << "},\"block\":\"transformed_parameters\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" << N << "},\"block\":\"generated_quantities\"}]";
     return s__.str();
     } // get_unconstrained_sizedtypes() 
     
