@@ -86,7 +86,7 @@ VARGrowthInput <- function(data,
     # Index of what year/group observation is from.  presumably ordered.
     u = as.integer(data$group),
     # tpt for each week presumably ordered.
-    tpt = as.integer(data$time),
+    tpt = data$time,
     U = length(unique(data$group)),
     # Num parameters
     d = GrowthFunction$num_params,
