@@ -44,7 +44,7 @@ real ObsVarPriors(real ObsVar, real priorParam1, real priorParam2, int priorType
     out += uniform_lpdf(ObsVar | priorParam1, priorParam2);
   }else if(priorType == 2){
     // a normal prior
-    out += normal_lpdf(ObsVar | priorParam1, priorParam2);
+    out += normal_lpdf(ObsVar| priorParam1, priorParam2) - normal_lccdf(0 | priorParam1, priorParam2);
   }else if(priorType == 3){
     out += inv_gamma_lpdf(ObsVar | priorParam1, priorParam2);
   }else{

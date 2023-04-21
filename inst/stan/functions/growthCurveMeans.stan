@@ -3,7 +3,7 @@
 // //
 //
  real gompertzMean(real time, real Asym, real offset, real growth){
-    return(Asym*exp(-offset*growth^time));
+    return(Asym*exp(-offset* exp(time*log(growth))));
  }
 // will need to wait until stan rolls out vectorized support
 // not sure if this really helps indexing the input vector for groups/time
