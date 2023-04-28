@@ -109,7 +109,7 @@ VARTrend <- function(theta,  p = 1, var_model_control = list()){
 #' @importFrom stats model.matrix
 #'
 #' @examples
-LinearModelTrend <- function(data, formula = ~ 1, XTheta = NULL){
+LinearModelTrend <- function(data, formula = ~ 1, XTheta = NULL, non_centered = FALSE){
   # browser()
   if(is.null(XTheta)){
     XTheta <- model.matrix(formula, data)
@@ -140,7 +140,7 @@ LinearModelTrend <- function(data, formula = ~ 1, XTheta = NULL){
        prior_params = c("Theta", "SigmaTheta", "betaTheta"),
        sim_params = c("SigmaTheta", "betaTheta"),
        formula = formula,
-       model = 'LinearTrendModel')
+       model = ifelse(non_centered, 'LinearTrendModel_noncentered', 'LinearTrendModel'))
 }
 
 #' Specify a Linear model for each parameter

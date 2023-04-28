@@ -217,7 +217,7 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 74, column 4 to column 61)",
                                                       " (in 'string', line 73, column 26 to line 75, column 3)",
                                                       " (in 'string', line 73, column 8 to line 77, column 3)",
-                                                      " (in 'string', line 72, column 4 to column 58)",
+                                                      " (in 'string', line 72, column 4 to column 102)",
                                                       " (in 'string', line 70, column 26 to line 73, column 3)",
                                                       " (in 'string', line 70, column 8 to line 77, column 3)",
                                                       " (in 'string', line 68, column 4 to column 32)",
@@ -275,7 +275,7 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 116, column 2 to line 133, column 3)",
                                                       " (in 'string', line 134, column 2 to column 14)",
                                                       " (in 'string', line 111, column 94 to line 135, column 1)",
-                                                      " (in 'string', line 143, column 4 to column 42)",
+                                                      " (in 'string', line 143, column 4 to column 53)",
                                                       " (in 'string', line 142, column 66 to line 144, column 2)",
                                                       " (in 'string', line 157, column 4 to column 72)",
                                                       " (in 'string', line 156, column 86 to line 158, column 2)",
@@ -598,7 +598,9 @@ ObsVarPriors(const T0__& ObsVar, const T1__& priorParam1,
         current_statement__ = 145;
         if (logical_eq(priorType, 2)) {
           current_statement__ = 143;
-          out = (out + normal_lpdf<false>(ObsVar, priorParam1, priorParam2));
+          out = (out +
+                  (normal_lpdf<false>(ObsVar, priorParam1, priorParam2) -
+                    normal_lccdf(0, priorParam1, priorParam2)));
         } else {
           current_statement__ = 142;
           if (logical_eq(priorType, 3)) {
@@ -865,7 +867,9 @@ gompertzMean(const T0__& time, const T1__& Asym, const T2__& offset,
   
   try {
     current_statement__ = 201;
-    return (Asym * stan::math::exp((-offset * pow(growth, time))));
+    return (Asym *
+             stan::math::exp(
+               (-offset * stan::math::exp((time * stan::math::log(growth))))));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
       // Next line prevents compiler griping about no return

@@ -125,12 +125,23 @@ VARGrowthInput <- function(data,
 initValEst <- function(data, ThetaTransformations, ThetaTrend, GrowthFunction){
   # browser()
   theta_est <- GrowthFunction$est_function(data)
+
+
   # theta_est[["fit"]] <- NULL
   theta <- theta_est$params$theta
   transTheta <- ThetaTransformations$theta_link(theta)
+
+  meanDefs <- apply(transTheta, 1, GrowthFunction$mean_func)
+  names(meanDefs) <- as.character(sort(unique(data$group)))
+  groups <- unique(data$group)
+
+  dat <- data %>%
+    group_by(group) %>%
+    mutate(mu = meanDefs[[unique(as.character(group))]](time)) %>%
+    ungroup()
   theta_trend_est <- do.call(ThetaTrend$est_function, c(theta = list(transTheta), ThetaTrend$est_input))
   # theta_trend_est[["fit"]] <- NULL
-  return(c(theta_est$params, list(transTheta = transTheta), theta_trend_est$params))
+  return(c(theta_est$params, list(transTheta = transTheta), list(mu = dat$mu), theta_trend_est$params))
 }
 
 #' Title
@@ -196,7 +207,14 @@ initVals_multi <- function(nchains, init, seed = NULL, perturb_var = 10, model){
            betaTheta = perturb(init$beta, perturb_var),
            Theta = perturb(init$transTheta, perturb_var),
            ObsVar = abs(perturb(sqrt(init$ObsVar), perturb_var)),
-           UpperBound = init$UpperBound + abs(1, perturb_var),
+           UpperBound = init$UpperBound + abs(1, perturb_var)
+      )
+    }else if(model == "LinearTrendModel_noncentered"){
+      list(SigmaTheta = abs(perturb(init$SigmaTheta, perturb_var)),
+           betaTheta = perturb(init$beta, perturb_var),
+           mu = perturb(init$mu, perturb_var),
+           theta_raw = perturb(matrix(0.1, nrow = nrow(init$transTheta),ncol = ncol(init$transTheta)), perturb_var),
+           ObsVar = abs(perturb(init$ObsVar, perturb_var))
       )
     }else{
       stop(paste0(model, " does not have an initial value function"))
@@ -251,7 +269,7 @@ VARGrowth <- function(data,
   }
 
   init_est <- initValEst(data, ThetaTransform, ThetaTrend, GrowthFunction)
-  # browser()
+
   out <- list(
     fit = sampling(
       stanmodels[[ThetaTrend$model]],

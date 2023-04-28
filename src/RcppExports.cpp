@@ -16,6 +16,7 @@ RcppExport SEXP _rcpp_module_boot_stan_fit4BoundedLinearTrendModel_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4DeterministicLinearTrendModel_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4LinearTrendModel_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4LinearTrendModel2_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4LinearTrendModel_noncentered_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4example_mod();
 
 static const R_CallMethodDef CallEntries[] = {
@@ -23,6 +24,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_rcpp_module_boot_stan_fit4DeterministicLinearTrendModel_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4DeterministicLinearTrendModel_mod, 0},
     {"_rcpp_module_boot_stan_fit4LinearTrendModel_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4LinearTrendModel_mod, 0},
     {"_rcpp_module_boot_stan_fit4LinearTrendModel2_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4LinearTrendModel2_mod, 0},
+    {"_rcpp_module_boot_stan_fit4LinearTrendModel_noncentered_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4LinearTrendModel_noncentered_mod, 0},
     {"_rcpp_module_boot_stan_fit4example_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4example_mod, 0},
     {NULL, NULL, 0}
 };
